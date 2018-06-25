@@ -19,7 +19,9 @@
 #define LIGHT_BROWN		0x0e
 #define WHITE			0x0f
 
-static void	clear_screen(char *vidptr)
+char	*vidptr = (char *)VIDEO_MEM;
+
+static void	clear_screen(void)
 {
 	// this loop set the screen
 	// * 2 for 2 bytes per block
@@ -33,7 +35,7 @@ static void	clear_screen(char *vidptr)
 	}
 }
 
-static void	write_to_screen(const char *str, char *vidptr)
+static void	write_to_screen(const char *str)
 {
 	/*this loop copy str to video ptr*/
 	int i, j = 0;
@@ -50,14 +52,14 @@ static void	write_to_screen(const char *str, char *vidptr)
 	}
 }
 
-void	kmain()
+void	kmain(void)
 {
 	const char		*str = "Hello world";
-	char			*vidptr = (char *)VIDEO_MEM;
 	unsigned int	i, j = 0;
 
-	clear_screen(vidptr);
-	write_to_screen(str, vidptr);
+	clear_screen();
+	/*splash_screen();*/
+	write_to_screen(str);
 
 	return ;
 }
