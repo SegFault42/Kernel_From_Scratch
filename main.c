@@ -1,6 +1,6 @@
-#define VIDEO_MEM	0xb8000
-#define MAX_LINES	25
-#define MAX_COLUMNS	80
+#define VIDEO_MEM		0xb8000
+#define MAX_LINES		25
+#define MAX_COLUMNS		80
 
 #define BLACK			0x00
 #define BLUE			0x01
@@ -19,6 +19,36 @@
 #define LIGHT_BROWN		0x0e
 #define WHITE			0x0f
 
+static void	clear_screen(char *vidptr)
+{
+	// this loop set the screen
+	// * 2 for 2 bytes per block
+	for (int j = 0; j < MAX_COLUMNS * MAX_LINES * 2; j+=2) {
+
+		// first byte set to ' '
+		vidptr[j] = ' ';
+
+		// second byte set to light grey on black screen.
+		vidptr[j + 1] = BLACK;
+	}
+}
+
+static void	write_to_screen(const char *str, char *vidptr)
+{
+	/*this loop copy str to video ptr*/
+	int i, j = 0;
+	while (str[j]) {
+
+		/*copy char to video ptr*/
+		vidptr[i] = str[j];
+
+		/*set the color to char*/
+		vidptr[i+1] = GREEN;
+
+		++j;
+		i += 2;
+	}
+}
 
 void	kmain()
 {
@@ -26,32 +56,8 @@ void	kmain()
 	char			*vidptr = (char *)VIDEO_MEM;
 	unsigned int	i, j = 0;
 
+	clear_screen(vidptr);
+	write_to_screen(str, vidptr);
 
-	// this loop set the screen
-	// * 2 for 2 bytes per block
-	while (j < MAX_COLUMNS * MAX_LINES * 2) {
-
-		// first byte set to ' '
-		vidptr[j] = ' ';
-
-		// second byte set to light grey on black screen.
-		vidptr[j + 1] = 0x07;
-		j += 2;
-	}
-
-	j = 0;
-
-	/*this loop copy str to video ptr*/
-	while (str[j]) {
-
-		/*copy char to video ptr*/
-		vidptr[i] = str[j];
-
-		/*set the color to char*/
-		vidptr[i+1] = 0x07;
-
-		++j;
-		i += 2;
-	}
 	return ;
 }
