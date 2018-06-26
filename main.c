@@ -19,7 +19,22 @@
 #define LIGHT_BROWN		0x0e
 #define WHITE			0x0f
 
+typedef char	uint8_t;
+typedef short	uint16_t;
+typedef int		uint32_t;
+typedef long	uint64_t;
+
 char	*vidptr = (char *)VIDEO_MEM;
+
+//this function write a character to x and y coordinate
+static void	write_to_pos(uint8_t x, uint8_t y, char c, uint8_t color)
+{
+	uint32_t i = 0;
+
+	i = ((y * MAX_COLUMNS) * 2) + (x * 2);
+	vidptr[i] = c;
+	vidptr[++i] = color;
+}
 
 static void	clear_screen(void)
 {
@@ -31,7 +46,7 @@ static void	clear_screen(void)
 		vidptr[j] = ' ';
 
 		// second byte set to light grey on black screen.
-		vidptr[j + 1] = BLACK;
+		vidptr[j+1] = BLACK;
 	}
 }
 
@@ -60,6 +75,7 @@ void	kmain(void)
 	clear_screen();
 	/*splash_screen();*/
 	write_to_screen(str);
+	write_to_pos(32, 20, 'a', 12);
 
 	return ;
 }

@@ -1,4 +1,4 @@
-NAME = kernel_rabougue
+NAME = kernel-v0.1
 
 CC = gcc
 ASMC = nasm
@@ -12,7 +12,7 @@ OBJS = main.o\
 
 all:$(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):
 	$(ASMC) -f elf32 $(SRC_S) -o entry.o
 	$(CC) -m32 -c $(SRC_C) -o main.o
 	ld -m elf_i386 -T $(SRC_LD) -o $(NAME) $(OBJS)
