@@ -1,6 +1,6 @@
 NAME = libft.a
 
-SRC = ./ft_kmemmove.c ./ft_kmemset.c ./ft_kputstr.c
+SRC = ./memory.c ./string.c ./scroll.c
 
 OBJS = $(SRC:.c=.o)
 

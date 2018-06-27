@@ -14,21 +14,14 @@ all:$(NAME)
 $(NAME): $(OBJS) ./include/kernel.h
 	make -s -C ./libft/
 	$(ASMC) -f elf32 entry.s -o entry.o
-	$(CC) -o $@ $^ $(FLAG)
-
-	#$(CC) $(FLAG) -o $(NAME) $(SRCS) ./libft/libft.a
-
-	#$(CC) $(FLAG) -c $(SRC_C) -o main.o
 	ld -m elf_i386 -T $(SRC_LD) -o $(NAME) $(OBJS) entry.o ./libft/libft.a
 
 %.o : %.c
-	echo "lol"
 	$(CC) -o $@ -c $(FLAG) $<
-	#$(CC) -c $(FLAG) $< -o $@ $(INCLUDE)
 
 clean:
 	make -s clean -C libft
-	rm -fr $(OBJS)
+	rm -fr $(OBJS) entry.o
 
 fclean: clean
 	make -s fclean -C libft

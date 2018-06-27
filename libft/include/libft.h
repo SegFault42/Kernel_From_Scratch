@@ -31,9 +31,13 @@ typedef long	size_t;
 
 char	*vidptr;
 
+// print function
 void	ft_kputstr(const char *str);
-//void	clear_screen(void);
-//void	write_to_pos(uint8_t x, uint8_t y, const char *str);
+void	ft_kputstr_color(const char *str, uint8_t color);
+void	ft_kputchar(int c);
+void	simple_scroll();
+
+// memory function
 void	*ft_kmemmove(void *dest, const void *src, size_t n);
 void	*ft_kmemset(void *b, int c, size_t len);
 
