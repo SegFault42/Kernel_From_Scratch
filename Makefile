@@ -1,26 +1,33 @@
-NAME = kernel-v0.1
+NAME = kernel_SegFault42
 
 CC = gcc
 ASMC = nasm
-FLAG = -fno-builtin -fno-exception -fno-stack-protector -fno-rtti -nostdlib -nodefaultlibs
+FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs
 
-SRC_C = main.c
-SRC_S = entry.s
+SRCS = ./srcs/main.c
 SRC_LD = link.ld
-OBJS = main.o\
-	   entry.o
+OBJS = $(SRCS:.c=.o)
+INCLUDE = -I ./include/
 
 all:$(NAME)
 
 $(NAME):
-	$(ASMC) -f elf32 $(SRC_S) -o entry.o
-	$(CC) -m32 -c $(SRC_C) -o main.o
-	ld -m elf_i386 -T $(SRC_LD) -o $(NAME) $(OBJS)
+	make -s -C ./libft/
+	$(ASMC) -f elf32 entry.s -o entry.o
+	$(CC) $(FLAG) -o $(NAME) $(SRCS) ./libft/libft.a
+	#$(CC) $(FLAG) -c $(SRC_C) -o main.o
+	#ld -m elf_i386 -T $(SRC_LD) -o $(NAME) $(OBJS) ./libft/libft.a
+
+%.o : %.c
+	$(CC) -c $(FLAG) $< -o $@ $(INCLUDE)
 
 clean:
+	make -s clean -C libft
 	rm -fr $(OBJS)
 
 fclean: clean
+	make -s fclean -C libft
 	rm -fr $(NAME)
 
 re: fclean all
+	make -s re -C libft
