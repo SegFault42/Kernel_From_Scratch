@@ -5,6 +5,7 @@
 #define VIDEO_MEM_END	0xb8FA0
 #define MAX_LINES		25
 #define MAX_COLUMNS		80
+#define CURSOR_Y ((vidptr - (char *)VIDEO_MEM_BEGIN) / 2) / MAX_COLUMNS
 
 #define BLACK			0x00
 #define BLUE			0x01
@@ -32,13 +33,17 @@ typedef long	size_t;
 char	*vidptr;
 
 // print function
-void	ft_kputstr(const char *str);
-void	ft_kputstr_color(const char *str, uint8_t color);
-void	ft_kputchar(int c);
+void	kfs_kputstr(const char *str);
+void	kfs_kputstr_color(const char *str, uint8_t color);
+void	kfs_kputchar(int c);
+void	kfs_putnbr(int c);
+void	kfs_kputchar_color(int c, uint8_t color);
+
 void	simple_scroll();
+void	kfs_clear_screen(void);
 
 // memory function
-void	*ft_kmemmove(void *dest, const void *src, size_t n);
-void	*ft_kmemset(void *b, int c, size_t len);
+void	*kfs_kmemmove(void *dest, const void *src, size_t n);
+void	*kfs_kmemset(void *b, int c, size_t len);
 
 #endif

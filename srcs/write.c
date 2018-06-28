@@ -16,17 +16,3 @@ void	write_to_pos(uint8_t x, uint8_t y, const char *str)
 	}
 }
 
-void	clear_screen(void)
-{
-	// this loop set the screen
-	// * 2 for 2 bytes per block
-	for (int j = 0; j < MAX_COLUMNS * MAX_LINES * 2; j+=2) {
-
-		// first byte set to ' '
-		vidptr[j] = ' ';
-
-		// second byte set to light grey on black screen.
-		vidptr[j+1] = WHITE;
-	}
-}
-
