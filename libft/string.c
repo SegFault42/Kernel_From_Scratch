@@ -1,16 +1,5 @@
 #include "libft.h"
 
-// move cursor in x and y position
-static void	move_cursor(uint8_t x, uint8_t y)
-{
-	uint16_t pos = 0;
-	char	*tmp = (char *)VIDEO_MEM_BEGIN;
-
-	vidptr = (char *)VIDEO_MEM_BEGIN;
-	pos = ((y * MAX_COLUMNS) * 2) + (x * 2);
-	vidptr += pos;
-}
-
 void kfs_putnbr(int n)
 {
 	if (n == -2147483648)

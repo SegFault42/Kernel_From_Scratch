@@ -1,1 +1,3 @@
 *.o
+*.a
+kernel_SegFault42
