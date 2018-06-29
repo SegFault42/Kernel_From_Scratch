@@ -27,5 +27,8 @@ fclean: clean
 	make -s fclean -C libft
 	rm -fr $(NAME)
 
-re: fclean all
+re: fclean all qemu
 	make -s re -C libft
+
+qemu:
+	qemu-system-i386 -kernel kernel_SegFault42

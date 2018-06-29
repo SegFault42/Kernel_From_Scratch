@@ -1,10 +1,9 @@
 #include "libft.h"
 
 // move cursor in x and y position
-void	move_cursor(uint8_t x, uint8_t y)
+void	move_cursor(uint16_t x, uint16_t y)
 {
 	uint16_t pos = 0;
-	char	*tmp = (char *)VIDEO_MEM_BEGIN;
 
 	vidptr = (char *)VIDEO_MEM_BEGIN;
 	pos = ((y * MAX_COLUMNS) * 2) + (x * 2);
@@ -24,5 +23,4 @@ void	simple_scroll(void)
 
 	// memset to 0 last line
 	kfs_kmemset(vidptr, 0, MAX_COLUMNS * 2);
-	for (int i =0; i< 100000000; i++){}
 }

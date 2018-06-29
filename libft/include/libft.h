@@ -40,7 +40,7 @@ void	kfs_putnbr(int c);
 void	kfs_kputchar_color(int c, uint8_t color);
 
 void	simple_scroll(void);
-void	move_cursor(uint8_t x, uint8_t y);
+void	move_cursor(uint16_t x, uint16_t y);
 void	kfs_clear_screen(void);
 
 // memory.c

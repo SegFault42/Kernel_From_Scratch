@@ -21,11 +21,6 @@ void kfs_putnbr(int n)
 		kfs_kputchar('0' + n);
 }
 
-void	kfs_kputchar(int c)
-{
-	kfs_kputchar_color(c, LIGHT_GREY);
-}
-
 void	kfs_kputchar_color(int c, uint8_t color)
 {
 	// scroll line if cursor is at last x position
@@ -33,11 +28,20 @@ void	kfs_kputchar_color(int c, uint8_t color)
 		simple_scroll();
 
 	if (c == '\n') {
-		move_cursor(0, CURSOR_Y + 1);
+		// clear cursor
+		*(vidptr + 1) = 0;
+		move_cursor(0, (uint16_t)CURSOR_Y + 1);
 	} else {
-		*vidptr++ = c;
+		*vidptr++ = (char)c;
 		*vidptr++ = color;
+		// put cursor in grey light;
+		*(vidptr + 1) |= (1 << 4) | (1 << 5) | (1 << 6);
 	}
+}
+
+void	kfs_kputchar(int c)
+{
+	kfs_kputchar_color(c, LIGHT_GREY);
 }
 
 void	kfs_kputstr(const char *str)
@@ -55,13 +59,12 @@ void	kfs_kputstr_color(const char *str, uint8_t color)
 
 void	kfs_clear_screen(void)
 {
+	uint16_t	i = 0;
+
 	vidptr = (char *)VIDEO_MEM_BEGIN;
-	// this loop set the screen
-	// * 2 for 2 bytes per block
-	for (int j = 0; j < MAX_COLUMNS * MAX_LINES * 2; j+=2) {
-		// first byte set to ' '
-		vidptr[j] = ' ';
-		// second byte set to light grey on black screen.
-		vidptr[j+1] = WHITE;
+	while (i < (MAX_COLUMNS * MAX_LINES) * 2) {
+		vidptr[i] = ' ';
+		vidptr[i+1]= BLACK;
+		i += 2;
 	}
 }

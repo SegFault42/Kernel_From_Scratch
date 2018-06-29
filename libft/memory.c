@@ -6,7 +6,7 @@ void	*kfs_kmemset(void *b, int c, size_t len)
 	char *tmp_b = b;
 
 	while (i < len) {
-		*tmp_b++ = c;
+		*tmp_b++ = (char)c;
 		i++;
 	}
 	return (b);
