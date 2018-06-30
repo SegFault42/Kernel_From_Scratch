@@ -4,14 +4,14 @@ CC = clang
 ASMC = nasm
 FLAG = -m32 -Weverything -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs
 
-SRCS = ./srcs/main.c ./srcs/write.c
+SRCS = ./srcs/main.c ./srcs/write.c ./srcs/keyboard.c
 SRC_LD = link.ld
 OBJS = $(SRCS:.c=.o)
 INCLUDE = -I ./include/
 
 all:$(NAME)
 
-$(NAME): $(OBJS) ./include/kernel.h
+$(NAME): $(OBJS) ./include/kernel.h ./include/keyboard.h
 	make -s -C ./libft/
 	$(ASMC) -f elf32 entry.s -o entry.o
 	ld -m elf_i386 -T $(SRC_LD) -o $(NAME) $(OBJS) entry.o ./libft/libft.a

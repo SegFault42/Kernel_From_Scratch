@@ -33,11 +33,11 @@ typedef long	size_t;
 extern char	*vidptr;
 
 // string.c
-void	kfs_kputstr(const char *str);
-void	kfs_kputstr_color(const char *str, uint8_t color);
-void	kfs_kputchar(int c);
+void	kfs_putstr(const char *str);
+void	kfs_putstr_color(const char *str, uint8_t color);
+void	kfs_putchar(int c);
 void	kfs_putnbr(int c);
-void	kfs_kputchar_color(int c, uint8_t color);
+void	kfs_putchar_color(int c, uint8_t color);
 
 void	simple_scroll(void);
 void	move_cursor(uint16_t x, uint16_t y);
