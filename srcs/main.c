@@ -2,7 +2,7 @@
 
 char	*vidptr = (char *)VIDEO_MEM_BEGIN;
 
-unsigned char	keyboard_map[128] = {
+unsigned char	keyboard_map[] = {
 	0, // undefined
 	0, // escape
 	'1','2','3','4','5','6','7','8','9','0','-','=',
@@ -55,7 +55,7 @@ void	kmain(void);
 void	kmain(void)
 {
 	kfs_clear_screen();
-	kfs_putstr("Hello, je suis un ordinateur. J'ai ete code par SegFault42 :)");
+	kfs_putstr("Hello, je suis un Kernel. J'ai ete code par SegFault42 :)");
 	idt_init();
 	kb_init();
 

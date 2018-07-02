@@ -38,6 +38,8 @@ void	kfs_putchar_color(int c, uint8_t color)
 		*vidptr++ = color;
 	}
 	// scroll line if cursor is at last x position
+	if (vidptr == (char *)VIDEO_MEM_END)
+		simple_scroll();
 
 	// put cursor in grey light;
 	*(vidptr + 1) |= (1 << 4) | (1 << 5) | (1 << 6);

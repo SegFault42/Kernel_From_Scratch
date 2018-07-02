@@ -15,9 +15,9 @@ typedef struct		IDT_entry
 	unsigned char zero;
 	unsigned char type_attr;
 	unsigned short int offset_higherbits;
-}				IDT_entry;
+}					IDT_entry;
 
-extern unsigned char keyboard_map[128];
+extern unsigned char keyboard_map[];
 
 extern void keyboard_handler(void);
 extern char read_port(unsigned short port);
