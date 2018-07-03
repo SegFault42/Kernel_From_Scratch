@@ -54,8 +54,9 @@ void	kmain(void);
 
 void	kmain(void)
 {
+	char	string[] = {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 187, 0};
 	kfs_clear_screen();
-	kfs_putstr("Hello, je suis un Kernel. J'ai ete code par SegFault42 :)");
+	kfs_putstr(string);
 	idt_init();
 	kb_init();
 
