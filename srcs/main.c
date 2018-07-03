@@ -54,9 +54,8 @@ void	kmain(void);
 
 void	kmain(void)
 {
-	char	string[] = {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 187, 0};
 	kfs_clear_screen();
-	kfs_putstr(string);
+	kfs_putstr_color(splash, GREEN);
 	idt_init();
 	kb_init();
 
