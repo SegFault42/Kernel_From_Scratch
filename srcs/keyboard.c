@@ -12,8 +12,8 @@ typedef struct	workspace
 uint8_t			current_work = 1;
 workspace		work[2] = {
 	[0].ptr = (char *)VIDEO_MEM_BEGIN,
-	[1].ptr = (char *)VIDEO_MEM_BEGIN,
 	[0].buff_video = {0},
+	[1].ptr = (char *)VIDEO_MEM_BEGIN,
 	[1].buff_video = {0},
 };
 
