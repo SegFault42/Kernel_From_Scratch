@@ -4,9 +4,9 @@ SRC = ./memory.c ./string.c ./scroll.c
 
 OBJS = $(SRC:.c=.o)
 
-CC = clang
+CC = gcc
 
-FLAG = -m32 -Weverything -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs
+FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs
 
 HEAD = ./include
 

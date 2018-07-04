@@ -30,7 +30,7 @@ typedef int		uint32_t;
 typedef long	uint64_t;
 typedef long	size_t;
 
-extern char	*vidptr;
+extern char		*vidptr;
 
 // string.c
 void	kfs_putstr(const char *str);
@@ -39,12 +39,13 @@ void	kfs_putchar(int c);
 void	kfs_putnbr(int c);
 void	kfs_putchar_color(int c, uint8_t color);
 
+// scroll.c
 void	simple_scroll(void);
 void	move_cursor(uint16_t x, uint16_t y);
 void	kfs_clear_screen(void);
 
 // memory.c
-void	*kfs_kmemmove(void *dest, const void *src, size_t n);
-void	*kfs_kmemset(void *b, int c, size_t len);
+void	*kfs_memmove(void *dest, const void *src, size_t n);
+void	*kfs_memset(void *b, int c, size_t len);
 
 #endif

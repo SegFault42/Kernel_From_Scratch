@@ -13,7 +13,7 @@ void	move_cursor(uint16_t x, uint16_t y)
 void	simple_scroll(void)
 {
 	// scrolling
-	kfs_kmemmove((char *)VIDEO_MEM_BEGIN,
+	kfs_memmove((char *)VIDEO_MEM_BEGIN,
 				(char *)VIDEO_MEM_BEGIN + (MAX_COLUMNS * 2),
 				(MAX_COLUMNS * 2) * (MAX_LINES - 1));
 
@@ -22,5 +22,5 @@ void	simple_scroll(void)
 	/*move_cursor(0, 24);*/
 
 	// memset to 0 last line
-	kfs_kmemset(vidptr, 0, MAX_COLUMNS * 2);
+	kfs_memset(vidptr, 0, MAX_COLUMNS * 2);
 }
