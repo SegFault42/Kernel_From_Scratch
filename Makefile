@@ -4,7 +4,7 @@ CC = clang
 ASMC = nasm
 FLAG = -m32 -Weverything -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs
 
-SRCS = ./srcs/main.c ./srcs/write.c ./srcs/keyboard.c
+SRCS = ./srcs/main.c ./srcs/write.c ./srcs/keyboard.c ./srcs/workspace.c
 SRC_LD = link.ld
 OBJS = $(SRCS:.c=.o)
 INCLUDE = -I ./include/

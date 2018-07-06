@@ -1,6 +1,6 @@
 #include "../include/kernel.h"
 
-workspace		work[2] = {
+static workspace		work[2] = {
 	[0].ptr = (char *)VIDEO_MEM_BEGIN,
 	[0].buff_video = {0},
 	[1].ptr = (char *)VIDEO_MEM_BEGIN,
