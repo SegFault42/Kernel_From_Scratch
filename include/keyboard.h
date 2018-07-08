@@ -56,23 +56,8 @@ static const unsigned char	keyboard_map[] = {
 	0		// <F12>
 };
 
-typedef struct		IDT_entry
-{
-	unsigned short int offset_lowerbits;
-	unsigned short int selector;
-	unsigned char zero;
-	unsigned char type_attr;
-	unsigned short int offset_higherbits;
-}					IDT_entry;
-
-
-extern void keyboard_handler(void);
 extern char read_port(unsigned short port);
 extern void write_port(unsigned short port, unsigned char data);
-extern void load_idt(unsigned long *idt_ptr);
-
-void kb_init(void);
-void idt_init(void);
-void keyboard_handler_main(void);
+void	keyboard();
 
 #endif

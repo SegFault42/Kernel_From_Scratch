@@ -29,24 +29,21 @@ write_port:
 	out dx, al
 	ret
 
-load_idt:
-	mov edx, [esp + 4]
-	lidt [edx]
-	sti
-	ret
+;load_idt:
+	;mov edx, [esp + 4]
+	;lidt [edx]
+	;sti
+	;ret
 
-keyboard_handler:
-	call keyboard_handler_main
-	iretd
+;keyboard_handler:
+	;call keyboard_handler_main
+	;iretd
 
 start:
 	cli						; interupt flag
 	mov esp, stack_space	; set stack pointer
 	call kmain
-
-loop:
 	hlt						; halt CPU
-	jmp loop
 
 section .bss
 	resb 8192				;8KB for stack
