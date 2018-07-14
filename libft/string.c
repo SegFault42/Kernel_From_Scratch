@@ -42,6 +42,7 @@ void	kfs_putchar_color(int c, uint8_t color)
 		simple_scroll();
 
 	// put cursor in grey light;
+	*vidptr = 0x0;
 	*(vidptr + 1) |= (1 << 4) | (1 << 5) | (1 << 6);
 
 }

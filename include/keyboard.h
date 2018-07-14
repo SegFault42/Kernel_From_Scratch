@@ -56,8 +56,8 @@ static const unsigned char	keyboard_map[] = {
 	0		// <F12>
 };
 
-extern char read_port(unsigned short port);
-extern void write_port(unsigned short port, unsigned char data);
-void	keyboard();
+extern char	read_port(unsigned short port);
+extern void	write_port(unsigned short port, unsigned char data);
+void		keyboard(void);
 
 #endif

@@ -3,9 +3,9 @@
 char	*vidptr = (char *)VIDEO_MEM_BEGIN;
 
 
-void	kmain(void);
+void	kmain(t_multiboot multiboot);
 
-void	kmain(void)
+void	kmain(t_multiboot multiboot)
 {
 	kfs_clear_screen();
 
