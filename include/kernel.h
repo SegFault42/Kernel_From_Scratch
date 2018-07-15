@@ -1,7 +1,7 @@
 #ifndef KERNEL_H
 #define KERNEL_H
 
-#include "../libft/include/libft.h"
+#include "../libkfs/include/libkfs.h"
 #include "../include/keyboard.h"
 #include "../include/splash.h"
 

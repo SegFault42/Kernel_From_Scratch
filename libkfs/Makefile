@@ -1,4 +1,4 @@
-NAME = libft.a
+NAME = libkfs.a
 
 SRC = ./memory.c ./string.c ./scroll.c
 
@@ -12,7 +12,7 @@ HEAD = ./include
 
 all: $(NAME)
 
-$(NAME): $(OBJS) ./include/libft.h
+$(NAME): $(OBJS) ./include/libkfs.h
 	$(CC) $(FLAG) -c $(SRC) -I $(HEAD)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)

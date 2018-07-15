@@ -38,6 +38,7 @@ void	kfs_putstr_color(const char *str, uint8_t color);
 void	kfs_putchar(int c);
 void	kfs_putnbr(int c);
 void	kfs_putchar_color(int c, uint8_t color);
+size_t	kfs_strlen(const char *str);
 
 // scroll.c
 void	simple_scroll(void);

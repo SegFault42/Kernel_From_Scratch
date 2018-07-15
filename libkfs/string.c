@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "libkfs.h"
 
 void kfs_putnbr(int n)
 {
@@ -33,6 +33,13 @@ void	kfs_putchar_color(int c, uint8_t color)
 			*(vidptr + 1) = 0x00;
 			vidptr -= 2;
 		}
+		while (*vidptr == 0x0) {
+			if (vidptr != (char *)VIDEO_MEM_BEGIN) {
+				*vidptr = 0x00;
+				*(vidptr + 1) = 0x00;
+				vidptr -= 2;
+			}
+		}
 	} else {
 		*vidptr++ = (char)c;
 		*vidptr++ = color;
@@ -45,6 +52,16 @@ void	kfs_putchar_color(int c, uint8_t color)
 	*vidptr = 0x0;
 	*(vidptr + 1) |= (1 << 4) | (1 << 5) | (1 << 6);
 
+}
+
+size_t	kfs_strlen(const char *str)
+{
+	size_t	i = 0;
+	while (*str) {
+		str++;
+		i++;
+	}
+	return (i);
 }
 
 void	kfs_putchar(int c)
@@ -71,8 +88,8 @@ void	kfs_clear_screen(void)
 
 	vidptr = (char *)VIDEO_MEM_BEGIN;
 	while (i < (MAX_COLUMNS * MAX_LINES) * 2) {
-		vidptr[i] = ' ';
-		vidptr[i+1]= BLACK;
+		vidptr[i] = 0x0;
+		vidptr[i+1]= 0x0;
 		i += 2;
 	}
 }

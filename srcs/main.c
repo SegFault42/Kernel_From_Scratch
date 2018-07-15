@@ -9,7 +9,7 @@ void	kmain(t_multiboot multiboot)
 {
 	kfs_clear_screen();
 
-	for (int i = 0; splash[i]; i++) {
+	for (int i = 0; i < 967; i++) {
 		kfs_putchar_color(splash[i], LIGHT_GREEN);
 		for (int j = 0; j < 400000; j++) {}
 	}

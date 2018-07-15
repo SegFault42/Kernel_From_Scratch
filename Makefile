@@ -16,9 +16,9 @@ INCLUDE = -I ./include/
 all:$(NAME)
 
 $(NAME): $(OBJS) ./include/kernel.h ./include/keyboard.h
-	make -s -C ./libft/
+	make -s -C ./libkfs/
 	$(ASMC) -f elf32 entry.s -o entry.o
-	ld -m elf_i386 -T $(SRC_LD) -o $(NAME) $(OBJS) entry.o ./libft/libft.a
+	ld -m elf_i386 -T $(SRC_LD) -o $(NAME) $(OBJS) entry.o ./libkfs/libkfs.a
 	@mkdir -p kernel/boot/grub
 	@/bin/cp $(NAME) kernel/boot
 	@/bin/cp grub.cfg kernel/boot/grub
@@ -28,17 +28,17 @@ $(NAME): $(OBJS) ./include/kernel.h ./include/keyboard.h
 	$(CC) -o $@ -c $(FLAG) $<
 
 clean:
-	make -s clean -C libft
+	make -s clean -C libkfs
 	rm -fr $(OBJS) entry.o
 	rm -fr kernel
 
 fclean: clean
-	make -s fclean -C libft
+	make -s fclean -C libkfs
 	rm -fr $(NAME)
 	rm -fr kernel_SegFault42.iso
 
 re: fclean all qemu
-	make -s re -C libft
+	make -s re -C libkfs
 
 qemu:
-	qemu-system-i386 -kernel kernel_SegFault42
+	qemu-system-i386 -cdrom kernel_SegFault42.iso
