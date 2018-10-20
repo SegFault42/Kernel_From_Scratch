@@ -4,6 +4,7 @@
 #include "../libkfs/include/libkfs.h"
 #include "../include/keyboard.h"
 #include "../include/splash.h"
+#include "../include/gdt.h"
 
 typedef struct	workspace
 {
@@ -43,5 +44,6 @@ typedef struct				s_multiboot
 void	clear_screen(void);
 void	write_to_pos(uint8_t x, uint8_t y, const char *str);
 void	switch_workspace(int keycode);
+//exvoid	init_gdt(void);
 
 #endif

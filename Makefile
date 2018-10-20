@@ -7,6 +7,7 @@ FLAG = -m32 -Weverything -fno-builtin -fno-exceptions -fno-stack-protector -nost
 SRCS = ./srcs/main.c\
  	   ./srcs/write.c\
  	   ./srcs/workspace.c\
+ 	   ./srcs/gdt.c\
  	   ./srcs/keyboard.c
 
 SRC_LD = link.ld
