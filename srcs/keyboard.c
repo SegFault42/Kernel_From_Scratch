@@ -1,5 +1,39 @@
 #include "../include/kernel.h"
 
+void	get_input(char buff[])
+{
+	unsigned char	status;
+	char			keycode;
+	uint8_t			idx = 0;
+
+	for (;;) {
+		status = read_port(KEYBOARD_STATUS_PORT);
+		if (status & 0x01) {
+			keycode = read_port(KEYBOARD_DATA_PORT);
+
+			if (!(keycode & 0x80)) {
+				kfs_putchar(keyboard_map[keycode]);
+				if(keycode < 0)
+				{
+					kfs_putstr("return\n");
+					return;
+				}
+	
+				// print keyboard
+				else if (keyboard_map[keycode] > 0) {
+					buff[idx] = keyboard_map[keycode];
+					idx++;
+				}
+	
+				// break loop if enter is pressed
+				if (buff[idx -1] == '\n' || idx == 126)
+					break ;
+			}
+
+		}
+	}
+}
+
 void	keyboard(void)
 {
 	unsigned char	status;

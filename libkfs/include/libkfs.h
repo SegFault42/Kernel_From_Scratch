@@ -29,6 +29,12 @@ typedef short	uint16_t;
 typedef int		uint32_t;
 typedef long	uint64_t;
 typedef long	size_t;
+typedef uint8_t	bool;
+
+enum {
+	false,
+	true
+};
 
 extern char		*vidptr;
 
@@ -39,6 +45,8 @@ void	kfs_putchar(int c);
 void	kfs_putnbr(int c);
 void	kfs_putchar_color(int c, uint8_t color);
 size_t	kfs_strlen(const char *str);
+int		kfs_strcmp(const char *s1, const char *s2);
+char	*kfs_strcpy(char *dst, const char *src);
 
 // scroll.c
 void	simple_scroll(void);
@@ -48,5 +56,9 @@ void	kfs_clear_screen(void);
 // memory.c
 void	*kfs_memmove(void *dest, const void *src, size_t n);
 void	*kfs_memset(void *b, int c, size_t len);
+
+// ctype.c
+int isascii(int c);
+int isprint(int c);
 
 #endif

@@ -1,0 +1,136 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ASMC	Makefile	/^ASMC = nasm$/;"	m
+BLACK	libkfs/include/libkfs.h	10;"	d
+BLUE	libkfs/include/libkfs.h	11;"	d
+BROWN	libkfs/include/libkfs.h	16;"	d
+CC	Makefile	/^CC = clang$/;"	m
+CC	libkfs/Makefile	/^CC = gcc$/;"	m
+CURSOR_Y	libkfs/include/libkfs.h	8;"	d
+CYAN	libkfs/include/libkfs.h	13;"	d
+DARK_GREY	libkfs/include/libkfs.h	18;"	d
+ENTER_KEY_CODE	include/keyboard.h	9;"	d
+FLAG	Makefile	/^FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs$/;"	m
+FLAG	libkfs/Makefile	/^FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs$/;"	m
+GDT_H	include/gdt.h	2;"	d
+GREEN	libkfs/include/libkfs.h	12;"	d
+HEAD	libkfs/Makefile	/^HEAD = .\/include$/;"	m
+IDT_SIZE	include/keyboard.h	4;"	d
+INCLUDE	Makefile	/^INCLUDE = -I .\/include\/$/;"	m
+INTERRUPT_GATE	include/keyboard.h	7;"	d
+KERNEL_CODE_SEGMENT_OFFSET	include/keyboard.h	8;"	d
+KERNEL_H	include/kernel.h	2;"	d
+KEYBOARD_DATA_PORT	include/keyboard.h	5;"	d
+KEYBOARD_H	include/keyboard.h	2;"	d
+KEYBOARD_STATUS_PORT	include/keyboard.h	6;"	d
+LIBFT_H	libkfs/include/libkfs.h	2;"	d
+LIGHT_BLUE	libkfs/include/libkfs.h	19;"	d
+LIGHT_BROWN	libkfs/include/libkfs.h	24;"	d
+LIGHT_CYAN	libkfs/include/libkfs.h	21;"	d
+LIGHT_GREEN	libkfs/include/libkfs.h	20;"	d
+LIGHT_GREY	libkfs/include/libkfs.h	17;"	d
+LIGHT_MAGENTA	libkfs/include/libkfs.h	23;"	d
+LIGHT_RED	libkfs/include/libkfs.h	22;"	d
+MAGENTA	libkfs/include/libkfs.h	15;"	d
+MAX_COLUMNS	libkfs/include/libkfs.h	7;"	d
+MAX_LINES	libkfs/include/libkfs.h	6;"	d
+NAME	Makefile	/^NAME = kernel_SegFault42$/;"	m
+NAME	libkfs/Makefile	/^NAME = libkfs.a$/;"	m
+NB_ENTRIES	include/gdt.h	4;"	d
+OBJS	Makefile	/^OBJS = $(SRCS:.c=.o)$/;"	m
+OBJS	libkfs/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+RED	libkfs/include/libkfs.h	14;"	d
+SRC	libkfs/Makefile	/^SRC = .\/memory.c .\/string.c .\/scroll.c$/;"	m
+SRCS	Makefile	/^SRCS = .\/srcs\/main.c\\$/;"	m
+SRC_LD	Makefile	/^SRC_LD = link.ld$/;"	m
+VIDEO_MEM_BEGIN	libkfs/include/libkfs.h	4;"	d
+VIDEO_MEM_END	libkfs/include/libkfs.h	5;"	d
+WHITE	libkfs/include/libkfs.h	25;"	d
+access	include/gdt.h	/^	uint8_t		access;              \/\/ Access flags, determine what ring this segment can be used in.$/;"	m	struct:s_gdt_entry
+addr	include/kernel.h	/^	uint32_t				addr;$/;"	m	struct:s_multiboot
+apm_table	include/kernel.h	/^	uint32_t				apm_table;$/;"	m	struct:s_multiboot
+base	include/gdt.h	/^	uint32_t	base;                \/\/ The address of the first gdt_entry_t struct.$/;"	m	struct:s_gdt_ptr
+base_high	include/gdt.h	/^	uint8_t		base_high;           \/\/ The last 8 bit$/;"	m	struct:s_gdt_entry
+base_low	include/gdt.h	/^	uint16_t	base_low;            \/\/ The lower 16 bits of the base.$/;"	m	struct:s_gdt_entry
+base_middle	include/gdt.h	/^	uint8_t		base_middle;         \/\/ The next 8 bits of the base.$/;"	m	struct:s_gdt_entry
+bits	entry.s	/^bits 32						; compile in 32 bits$/;"	l
+boot_device	include/kernel.h	/^	uint32_t				boot_device;$/;"	m	struct:s_multiboot
+boot_loader_name	include/kernel.h	/^	uint32_t				boot_loader_name;$/;"	m	struct:s_multiboot
+buff_video	include/kernel.h	/^	char		buff_video[(MAX_COLUMNS * MAX_LINES) * 2];$/;"	m	struct:workspace
+cmdline	include/kernel.h	/^	uint32_t				cmdline;$/;"	m	struct:s_multiboot
+config_table	include/kernel.h	/^	uint32_t				config_table;$/;"	m	struct:s_multiboot
+current_work	srcs/workspace.c	/^uint8_t			current_work = 1;$/;"	v
+drives_addr	include/kernel.h	/^	uint32_t				drives_addr;$/;"	m	struct:s_multiboot
+drives_length	include/kernel.h	/^	uint32_t				drives_length;$/;"	m	struct:s_multiboot
+extern	entry.s	/^extern kmain				; kmain defined in kernel_main.c$/;"	l
+flags	include/kernel.h	/^	uint32_t				flags;$/;"	m	struct:s_multiboot
+gdt_entries	srcs/gdt.c	/^t_gdt_entry	gdt_entries[NB_ENTRIES];$/;"	v
+gdt_flush	entry.s	/^gdt_flush:$/;"	l
+gdt_ptr	srcs/gdt.c	/^t_gdt_ptr		gdt_ptr;$/;"	v
+gdt_set_gate	srcs/gdt.c	/^static void gdt_set_gate(int num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran)$/;"	f	file:
+global	entry.s	/^global gdt_flush$/;"	l
+global	entry.s	/^global read_port$/;"	l
+global	entry.s	/^global start$/;"	l
+global	entry.s	/^global write_port$/;"	l
+granularity	include/gdt.h	/^	uint8_t		granularity;$/;"	m	struct:s_gdt_entry
+init_gdt	srcs/gdt.c	/^void	init_gdt(void)$/;"	f
+keyboard	srcs/keyboard.c	/^void	keyboard(void)$/;"	f
+keyboard_map	include/keyboard.h	/^static const unsigned char	keyboard_map[] = {$/;"	v
+kfs_clear_screen	libkfs/string.c	/^void	kfs_clear_screen(void)$/;"	f
+kfs_memmove	libkfs/memory.c	/^void	*kfs_memmove(void *dest, const void *src, size_t n)$/;"	f
+kfs_memset	libkfs/memory.c	/^void	*kfs_memset(void *b, int c, size_t len)$/;"	f
+kfs_putchar	libkfs/string.c	/^void	kfs_putchar(int c)$/;"	f
+kfs_putchar_color	libkfs/string.c	/^void	kfs_putchar_color(int c, uint8_t color)$/;"	f
+kfs_putnbr	libkfs/string.c	/^void kfs_putnbr(int n)$/;"	f
+kfs_putstr	libkfs/string.c	/^void	kfs_putstr(const char *str)$/;"	f
+kfs_putstr_color	libkfs/string.c	/^void	kfs_putstr_color(const char *str, uint8_t color)$/;"	f
+kfs_strlen	libkfs/string.c	/^size_t	kfs_strlen(const char *str)$/;"	f
+kmain	srcs/main.c	/^int	kmain(t_multiboot multiboot)$/;"	f
+limit	include/gdt.h	/^	uint16_t	limit;               \/\/ The upper 16 bits of all selector limits.$/;"	m	struct:s_gdt_ptr
+limit_low	include/gdt.h	/^	uint16_t	limit_low;           \/\/ The lower 16 bits of the limit.$/;"	m	struct:s_gdt_entry
+mem_lower	include/kernel.h	/^	uint32_t				mem_lower;$/;"	m	struct:s_multiboot
+mem_upper	include/kernel.h	/^	uint32_t				mem_upper;$/;"	m	struct:s_multiboot
+mmap_addr	include/kernel.h	/^	uint32_t				mmap_addr;$/;"	m	struct:s_multiboot
+mmap_length	include/kernel.h	/^	uint32_t				mmap_length;$/;"	m	struct:s_multiboot
+mods_addr	include/kernel.h	/^	uint32_t				mods_addr;$/;"	m	struct:s_multiboot
+mods_count	include/kernel.h	/^	uint32_t				mods_count;$/;"	m	struct:s_multiboot
+move_cursor	libkfs/scroll.c	/^void	move_cursor(uint16_t x, uint16_t y)$/;"	f
+num	include/kernel.h	/^	uint32_t				num;$/;"	m	struct:s_multiboot
+ptr	include/kernel.h	/^	char		*ptr;$/;"	m	struct:workspace
+read_port	entry.s	/^read_port:$/;"	l
+s_gdt_entry	include/gdt.h	/^typedef struct	s_gdt_entry$/;"	s
+s_gdt_ptr	include/gdt.h	/^typedef struct	s_gdt_ptr$/;"	s
+s_multiboot	include/kernel.h	/^typedef struct				s_multiboot$/;"	s
+section	entry.s	/^section .bss$/;"	l
+section	entry.s	/^section .text$/;"	l
+shndx	include/kernel.h	/^	uint32_t				shndx;$/;"	m	struct:s_multiboot
+simple_scroll	libkfs/scroll.c	/^void	simple_scroll(void)$/;"	f
+size	include/kernel.h	/^	uint32_t				size;$/;"	m	struct:s_multiboot
+size_t	libkfs/include/libkfs.h	/^typedef long	size_t;$/;"	t
+splash	include/splash.h	/^static const char	*splash =	"\\012\\012\\012\\012\\012\\012\\012\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\333\\333\\273\\000\\333\\333\\273\\000\\000\\000\\333\\333\\273\\333\\333\\273\\000\\000\\333\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\273\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\315\\315\\274\\000\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\333\\333\\273\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\272\\000\\000\\310\\315\\315\\333\\333\\311\\315\\315\\274\\333\\333\\272\\000\\000\\333\\333\\272\\310\\315\\315\\315\\315\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\272\\000\\000\\333\\333\\333\\273\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\333\\333\\333\\333\\333\\272\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\272\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\000\\333\\333\\333\\333\\333\\333\\333\\272\\000\\333\\333\\333\\333\\333\\311\\274\\310\\315\\315\\315\\315\\333\\333\\272\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\311\\315\\315\\333\\333\\272\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\272\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\000\\310\\315\\315\\315\\315\\333\\333\\272\\333\\333\\311\\315\\315\\315\\274\\000\\333\\333\\333\\333\\333\\333\\333\\272\\333\\333\\333\\333\\333\\333\\333\\273\\310\\333\\333\\333\\333\\333\\333\\311\\274\\333\\333\\272\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\333\\333\\272\\310\\333\\333\\333\\333\\333\\333\\311\\274\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\272\\333\\333\\333\\333\\333\\333\\333\\273\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\000\\310\\315\\315\\315\\315\\315\\274\\000\\310\\315\\274\\000\\000\\000\\000\\000\\310\\315\\274\\000\\000\\310\\315\\274\\000\\310\\315\\315\\315\\315\\315\\274\\000\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\274\\000\\000\\000\\000\\000\\000\\000\\000\\310\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\273\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\273\\000\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\273\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\272\\000\\333\\333\\311\\274\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\333\\333\\273\\333\\333\\333\\333\\273\\000\\000\\333\\333\\272\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\333\\333\\333\\311\\274\\000\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\333\\333\\333\\333\\311\\274\\333\\333\\311\\333\\333\\273\\000\\333\\333\\272\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\311\\315\\333\\333\\273\\000\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\311\\315\\315\\333\\333\\273\\333\\333\\272\\310\\333\\333\\273\\333\\333\\272\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\272\\000\\000\\333\\333\\272\\333\\333\\272\\000\\310\\333\\333\\333\\333\\272\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\310\\315\\274\\000\\000\\310\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\274\\000\\000\\310\\315\\274\\310\\315\\274\\000\\000\\310\\315\\315\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000";$/;"	v
+stack_space	entry.s	/^stack_space:$/;"	l
+start	entry.s	/^start:$/;"	l
+switch_workspace	srcs/workspace.c	/^void	switch_workspace(int keycode)$/;"	f
+t_gdt_entry	include/gdt.h	/^} __attribute__((packed)) t_gdt_entry;$/;"	t	typeref:struct:s_gdt_entry
+t_gdt_ptr	include/gdt.h	/^} __attribute__((packed)) t_gdt_ptr;$/;"	t	typeref:struct:s_gdt_ptr
+t_multiboot	include/kernel.h	/^}							t_multiboot;$/;"	t	typeref:struct:s_multiboot
+uint16_t	libkfs/include/libkfs.h	/^typedef short	uint16_t;$/;"	t
+uint32_t	libkfs/include/libkfs.h	/^typedef int		uint32_t;$/;"	t
+uint64_t	libkfs/include/libkfs.h	/^typedef long	uint64_t;$/;"	t
+uint8_t	libkfs/include/libkfs.h	/^typedef char	uint8_t;$/;"	t
+vbe_control_info	include/kernel.h	/^	uint32_t				vbe_control_info;$/;"	m	struct:s_multiboot
+vbe_interface_len	include/kernel.h	/^	uint32_t				vbe_interface_len;$/;"	m	struct:s_multiboot
+vbe_interface_off	include/kernel.h	/^	uint32_t				vbe_interface_off;$/;"	m	struct:s_multiboot
+vbe_interface_seg	include/kernel.h	/^	uint32_t				vbe_interface_seg;$/;"	m	struct:s_multiboot
+vbe_mode	include/kernel.h	/^	uint32_t				vbe_mode;$/;"	m	struct:s_multiboot
+vbe_mode_info	include/kernel.h	/^	uint32_t				vbe_mode_info;$/;"	m	struct:s_multiboot
+vidptr	srcs/main.c	/^char	*vidptr = (char *)VIDEO_MEM_BEGIN;$/;"	v
+work	srcs/workspace.c	/^static workspace		work[2] = {$/;"	v	file:
+workspace	include/kernel.h	/^typedef struct	workspace$/;"	s
+workspace	include/kernel.h	/^}				workspace;$/;"	t	typeref:struct:workspace
+write_port	entry.s	/^write_port:$/;"	l
+write_to_pos	srcs/write.c	/^void	write_to_pos(uint8_t x, uint8_t y, const char *str)$/;"	f

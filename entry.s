@@ -2,14 +2,12 @@
 
 bits 32						; compile in 32 bits
 
-section .multiboot
+section .text
 	;multiboot spec
 	align 4
 	dd 0x1BADB002			; magic number (for multiboot)
 	dd 0x00					; flags
 	dd - (0x1BADB002 + 0x0) ; checksum magic + flag + checksum = should be 0x00
-
-section .text
 
 global start
 global read_port
@@ -51,6 +49,6 @@ gdt_flush:
 	ret
 
 section .bss
-	resb 2 * 1024*1024				;8KB for stack
+	resb 8 * 1024				;8KB for stack
 
 stack_space:

@@ -2,7 +2,7 @@ NAME = kernel_SegFault42
 
 CC = clang
 ASMC = nasm
-FLAG = -m32 -Weverything -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs
+FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs
 
 SRCS = ./srcs/main.c\
  	   ./srcs/write.c\

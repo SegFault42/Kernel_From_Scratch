@@ -59,5 +59,6 @@ static const unsigned char	keyboard_map[] = {
 extern char	read_port(unsigned short port);
 extern void	write_port(unsigned short port, unsigned char data);
 void		keyboard(void);
+void	get_input(char buff[]);
 
 #endif

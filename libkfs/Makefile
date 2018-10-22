@@ -1,6 +1,6 @@
 NAME = libkfs.a
 
-SRC = ./memory.c ./string.c ./scroll.c
+SRC = ./memory.c ./string.c ./scroll.c ./ctype.c
 
 OBJS = $(SRC:.c=.o)
 
