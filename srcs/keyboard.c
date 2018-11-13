@@ -13,8 +13,7 @@ void	get_input(char buff[])
 
 			if (!(keycode & 0x80)) {
 				kfs_putchar(keyboard_map[keycode]);
-				if(keycode < 0)
-				{
+				if(keycode < 0) {
 					kfs_putstr("return\n");
 					return;
 				}
