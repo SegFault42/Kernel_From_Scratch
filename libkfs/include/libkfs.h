@@ -47,6 +47,9 @@ void	kfs_putchar_color(int c, uint8_t color);
 size_t	kfs_strlen(const char *str);
 int		kfs_strcmp(const char *s1, const char *s2);
 char	*kfs_strcpy(char *dst, const char *src);
+void	printHex(uint8_t key);
+void	printHex16(uint16_t key);
+void	printHex32(uint32_t key);
 
 // scroll.c
 void	simple_scroll(void);

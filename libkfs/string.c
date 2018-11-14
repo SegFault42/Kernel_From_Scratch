@@ -1,25 +1,27 @@
 #include "libkfs.h"
 
-static void printHex16(uint16_t key)
+void	printHex16(uint16_t key)
 {
     printHex((key >> 8) & 0xFF);
-    printHex( key & 0xFF);
+    printHex(key & 0xFF);
 }
 
-static void printHex32(uint32_t key)
+void	printHex32(uint32_t key)
 {
     printHex((key >> 24) & 0xFF);
     printHex((key >> 16) & 0xFF);
     printHex((key >> 8) & 0xFF);
-    printHex( key & 0xFF);
+    printHex(key & 0xFF);
 }
 
-void printHex(uint8_t key)
+void	printHex(uint8_t key)
 {
-    char* foo = "00";
-    char* hex = "0123456789ABCDEF";
+    char	*foo = "00";
+    char	*hex = "0123456789ABCDEF";
+
     foo[0] = hex[(key >> 4) & 0xF];
     foo[1] = hex[key & 0xF];
+
     kfs_putstr(foo);
 }
 

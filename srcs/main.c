@@ -4,38 +4,15 @@ char	*vidptr = (char *)VIDEO_MEM_BEGIN;
 
 /*void	kmain(t_multiboot multiboot);*/
 
-static	void printfHex(uint8_t key)
-{
-    char* foo = "00";
-    char* hex = "0123456789ABCDEF";
-    foo[0] = hex[(key >> 4) & 0xF];
-    foo[1] = hex[key & 0xF];
-    kfs_putstr(foo);
-}
-
-static void printfHex16(uint16_t key)
-{
-    printfHex((key >> 8) & 0xFF);
-    printfHex( key & 0xFF);
-}
-
-static void printfHex32(uint32_t key)
-{
-    printfHex((key >> 24) & 0xFF);
-    printfHex((key >> 16) & 0xFF);
-    printfHex((key >> 8) & 0xFF);
-    printfHex( key & 0xFF);
-}
-
 static void	hexdump(void *addr)
 {
 	// Print offset
-	printfHex32((uint32_t)addr);
+	printHex32((uint32_t)addr);
 	kfs_putstr("  ");
 
 	// Print value in hex
 	for (int i = 0; i < 16; i++) {
-		printfHex(*(uint8_t *)addr);
+		printHex(*(uint8_t *)addr);
 
 		if (i == 7) kfs_putstr("  ");
 		else kfs_putstr(" ");
