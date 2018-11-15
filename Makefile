@@ -8,6 +8,7 @@ SRCS = ./srcs/main.c\
  	   ./srcs/write.c\
  	   ./srcs/workspace.c\
  	   ./srcs/gdt.c\
+ 	   ./srcs/shell.c\
  	   ./srcs/keyboard.c
 
 SRC_LD = link.ld

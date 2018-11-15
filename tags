@@ -16,12 +16,18 @@ DARK_GREY	libkfs/include/libkfs.h	18;"	d
 ENTER_KEY_CODE	include/keyboard.h	9;"	d
 FLAG	Makefile	/^FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs$/;"	m
 FLAG	libkfs/Makefile	/^FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs$/;"	m
+GDT_BEGIN	include/gdt.h	5;"	d
 GDT_H	include/gdt.h	2;"	d
 GREEN	libkfs/include/libkfs.h	12;"	d
 HEAD	libkfs/Makefile	/^HEAD = .\/include$/;"	m
 IDT_SIZE	include/keyboard.h	4;"	d
 INCLUDE	Makefile	/^INCLUDE = -I .\/include\/$/;"	m
 INTERRUPT_GATE	include/keyboard.h	7;"	d
+KBRD_BIT_KDATA	srcs/main.c	11;"	d	file:
+KBRD_BIT_UDATA	srcs/main.c	12;"	d	file:
+KBRD_INTRFC	srcs/main.c	8;"	d	file:
+KBRD_IO	srcs/main.c	14;"	d	file:
+KBRD_RESET	srcs/main.c	15;"	d	file:
 KERNEL_CODE_SEGMENT_OFFSET	include/keyboard.h	8;"	d
 KERNEL_H	include/kernel.h	2;"	d
 KEYBOARD_DATA_PORT	include/keyboard.h	5;"	d
@@ -44,7 +50,7 @@ NB_ENTRIES	include/gdt.h	4;"	d
 OBJS	Makefile	/^OBJS = $(SRCS:.c=.o)$/;"	m
 OBJS	libkfs/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
 RED	libkfs/include/libkfs.h	14;"	d
-SRC	libkfs/Makefile	/^SRC = .\/memory.c .\/string.c .\/scroll.c$/;"	m
+SRC	libkfs/Makefile	/^SRC = .\/memory.c .\/string.c .\/scroll.c .\/ctype.c$/;"	m
 SRCS	Makefile	/^SRCS = .\/srcs\/main.c\\$/;"	m
 SRC_LD	Makefile	/^SRC_LD = link.ld$/;"	m
 VIDEO_MEM_BEGIN	libkfs/include/libkfs.h	4;"	d
@@ -57,27 +63,35 @@ base	include/gdt.h	/^	uint32_t	base;                \/\/ The address of the firs
 base_high	include/gdt.h	/^	uint8_t		base_high;           \/\/ The last 8 bit$/;"	m	struct:s_gdt_entry
 base_low	include/gdt.h	/^	uint16_t	base_low;            \/\/ The lower 16 bits of the base.$/;"	m	struct:s_gdt_entry
 base_middle	include/gdt.h	/^	uint8_t		base_middle;         \/\/ The next 8 bits of the base.$/;"	m	struct:s_gdt_entry
+bit	srcs/main.c	17;"	d	file:
 bits	entry.s	/^bits 32						; compile in 32 bits$/;"	l
+bool	libkfs/include/libkfs.h	/^typedef uint8_t	bool;$/;"	t
 boot_device	include/kernel.h	/^	uint32_t				boot_device;$/;"	m	struct:s_multiboot
 boot_loader_name	include/kernel.h	/^	uint32_t				boot_loader_name;$/;"	m	struct:s_multiboot
 buff_video	include/kernel.h	/^	char		buff_video[(MAX_COLUMNS * MAX_LINES) * 2];$/;"	m	struct:workspace
+check_flag	srcs/main.c	20;"	d	file:
 cmdline	include/kernel.h	/^	uint32_t				cmdline;$/;"	m	struct:s_multiboot
 config_table	include/kernel.h	/^	uint32_t				config_table;$/;"	m	struct:s_multiboot
 current_work	srcs/workspace.c	/^uint8_t			current_work = 1;$/;"	v
 drives_addr	include/kernel.h	/^	uint32_t				drives_addr;$/;"	m	struct:s_multiboot
 drives_length	include/kernel.h	/^	uint32_t				drives_length;$/;"	m	struct:s_multiboot
 extern	entry.s	/^extern kmain				; kmain defined in kernel_main.c$/;"	l
+false	libkfs/include/libkfs.h	/^	false,$/;"	e	enum:__anon1
 flags	include/kernel.h	/^	uint32_t				flags;$/;"	m	struct:s_multiboot
 gdt_entries	srcs/gdt.c	/^t_gdt_entry	gdt_entries[NB_ENTRIES];$/;"	v
 gdt_flush	entry.s	/^gdt_flush:$/;"	l
 gdt_ptr	srcs/gdt.c	/^t_gdt_ptr		gdt_ptr;$/;"	v
 gdt_set_gate	srcs/gdt.c	/^static void gdt_set_gate(int num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran)$/;"	f	file:
+get_input	srcs/keyboard.c	/^void	get_input(char buff[])$/;"	f
 global	entry.s	/^global gdt_flush$/;"	l
 global	entry.s	/^global read_port$/;"	l
 global	entry.s	/^global start$/;"	l
 global	entry.s	/^global write_port$/;"	l
 granularity	include/gdt.h	/^	uint8_t		granularity;$/;"	m	struct:s_gdt_entry
+hexdump	libkfs/string.c	/^void	hexdump(void *addr)$/;"	f
 init_gdt	srcs/gdt.c	/^void	init_gdt(void)$/;"	f
+isascii	libkfs/ctype.c	/^int isascii(int c)$/;"	f
+isprint	libkfs/ctype.c	/^int isprint(int c)$/;"	f
 keyboard	srcs/keyboard.c	/^void	keyboard(void)$/;"	f
 keyboard_map	include/keyboard.h	/^static const unsigned char	keyboard_map[] = {$/;"	v
 kfs_clear_screen	libkfs/string.c	/^void	kfs_clear_screen(void)$/;"	f
@@ -88,6 +102,8 @@ kfs_putchar_color	libkfs/string.c	/^void	kfs_putchar_color(int c, uint8_t color)
 kfs_putnbr	libkfs/string.c	/^void kfs_putnbr(int n)$/;"	f
 kfs_putstr	libkfs/string.c	/^void	kfs_putstr(const char *str)$/;"	f
 kfs_putstr_color	libkfs/string.c	/^void	kfs_putstr_color(const char *str, uint8_t color)$/;"	f
+kfs_strcmp	libkfs/string.c	/^int	kfs_strcmp(const char *s1, const char *s2)$/;"	f
+kfs_strcpy	libkfs/string.c	/^char	*kfs_strcpy(char *dst, const char *src)$/;"	f
 kfs_strlen	libkfs/string.c	/^size_t	kfs_strlen(const char *str)$/;"	f
 kmain	srcs/main.c	/^int	kmain(t_multiboot multiboot)$/;"	f
 limit	include/gdt.h	/^	uint16_t	limit;               \/\/ The upper 16 bits of all selector limits.$/;"	m	struct:s_gdt_ptr
@@ -100,13 +116,18 @@ mods_addr	include/kernel.h	/^	uint32_t				mods_addr;$/;"	m	struct:s_multiboot
 mods_count	include/kernel.h	/^	uint32_t				mods_count;$/;"	m	struct:s_multiboot
 move_cursor	libkfs/scroll.c	/^void	move_cursor(uint16_t x, uint16_t y)$/;"	f
 num	include/kernel.h	/^	uint32_t				num;$/;"	m	struct:s_multiboot
+printHex	libkfs/string.c	/^void	printHex(uint8_t key)$/;"	f
+printHex16	libkfs/string.c	/^void	printHex16(uint16_t key)$/;"	f
+printHex32	libkfs/string.c	/^void	printHex32(uint32_t key)$/;"	f
 ptr	include/kernel.h	/^	char		*ptr;$/;"	m	struct:workspace
 read_port	entry.s	/^read_port:$/;"	l
+reboot	srcs/main.c	/^void reboot(void)$/;"	f
 s_gdt_entry	include/gdt.h	/^typedef struct	s_gdt_entry$/;"	s
 s_gdt_ptr	include/gdt.h	/^typedef struct	s_gdt_ptr$/;"	s
 s_multiboot	include/kernel.h	/^typedef struct				s_multiboot$/;"	s
 section	entry.s	/^section .bss$/;"	l
 section	entry.s	/^section .text$/;"	l
+shell	srcs/shell.c	/^void	shell(void)$/;"	f
 shndx	include/kernel.h	/^	uint32_t				shndx;$/;"	m	struct:s_multiboot
 simple_scroll	libkfs/scroll.c	/^void	simple_scroll(void)$/;"	f
 size	include/kernel.h	/^	uint32_t				size;$/;"	m	struct:s_multiboot
@@ -118,6 +139,7 @@ switch_workspace	srcs/workspace.c	/^void	switch_workspace(int keycode)$/;"	f
 t_gdt_entry	include/gdt.h	/^} __attribute__((packed)) t_gdt_entry;$/;"	t	typeref:struct:s_gdt_entry
 t_gdt_ptr	include/gdt.h	/^} __attribute__((packed)) t_gdt_ptr;$/;"	t	typeref:struct:s_gdt_ptr
 t_multiboot	include/kernel.h	/^}							t_multiboot;$/;"	t	typeref:struct:s_multiboot
+true	libkfs/include/libkfs.h	/^	true$/;"	e	enum:__anon1
 uint16_t	libkfs/include/libkfs.h	/^typedef short	uint16_t;$/;"	t
 uint32_t	libkfs/include/libkfs.h	/^typedef int		uint32_t;$/;"	t
 uint64_t	libkfs/include/libkfs.h	/^typedef long	uint64_t;$/;"	t

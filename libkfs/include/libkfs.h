@@ -50,6 +50,7 @@ char	*kfs_strcpy(char *dst, const char *src);
 void	printHex(uint8_t key);
 void	printHex16(uint16_t key);
 void	printHex32(uint32_t key);
+void	hexdump(void *addr);
 
 // scroll.c
 void	simple_scroll(void);

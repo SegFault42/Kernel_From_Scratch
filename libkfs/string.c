@@ -1,5 +1,35 @@
 #include "libkfs.h"
 
+void	hexdump(void *addr)
+{
+	// Print offset
+	printHex32((uint32_t)addr);
+	kfs_putstr("  ");
+
+	// Print value in hex
+	for (int i = 0; i < 16; i++) {
+		printHex(*(uint8_t *)addr);
+
+		if (i == 7) kfs_putstr("  ");
+		else kfs_putstr(" ");
+		addr++;
+	}
+
+	addr -= 16;
+
+	kfs_putstr(" |");
+	// Print value in ascii
+	for (int i = 0; i < 16; i++) {
+		if (isprint(*(uint8_t *)addr))
+			kfs_putchar(*(uint8_t *)addr);
+		else
+			kfs_putchar('.');
+		addr++;
+	}
+
+	kfs_putstr("|\n");
+}
+
 void	printHex16(uint16_t key)
 {
     printHex((key >> 8) & 0xFF);

@@ -17,18 +17,22 @@ void	get_input(char buff[])
 					kfs_putstr("return\n");
 					return;
 				}
-	
-				// print keyboard
+
+				// store keyboard input
 				else if (keyboard_map[keycode] > 0) {
 					buff[idx] = keyboard_map[keycode];
 					idx++;
 				}
-	
+
 				// break loop if enter is pressed
-				if (buff[idx -1] == '\n' || idx == 126)
+				if (buff[idx -1] == '\n')
 					break ;
 			}
-
+		}
+		if (idx == 126) {
+			kfs_putstr_color("\nCommand to long\n", RED);
+			kfs_memset(buff, 0, sizeof(buff));
+			break ;
 		}
 	}
 }

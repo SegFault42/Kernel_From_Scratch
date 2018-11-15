@@ -40,10 +40,10 @@ typedef struct				s_multiboot
 	uint32_t				vbe_interface_len;
 }							t_multiboot;
 
-
 void	clear_screen(void);
 void	write_to_pos(uint8_t x, uint8_t y, const char *str);
 void	switch_workspace(int keycode);
+void	shell();
 //exvoid	init_gdt(void);
 
 #endif

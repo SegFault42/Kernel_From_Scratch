@@ -4,35 +4,6 @@ char	*vidptr = (char *)VIDEO_MEM_BEGIN;
 
 /*void	kmain(t_multiboot multiboot);*/
 
-static void	hexdump(void *addr)
-{
-	// Print offset
-	printHex32((uint32_t)addr);
-	kfs_putstr("  ");
-
-	// Print value in hex
-	for (int i = 0; i < 16; i++) {
-		printHex(*(uint8_t *)addr);
-
-		if (i == 7) kfs_putstr("  ");
-		else kfs_putstr(" ");
-		addr++;
-	}
-
-	addr -= 16;
-
-	kfs_putstr(" |");
-	// Print value in ascii
-	for (int i = 0; i < 16; i++) {
-		if (isprint(*(uint8_t *)addr))
-			kfs_putchar(*(uint8_t *)addr);
-		else
-			kfs_putchar('.');
-		addr++;
-	}
-
-	kfs_putstr("|\n");
-}
 
 #define KBRD_INTRFC 0x64
 
@@ -66,27 +37,6 @@ void reboot(void)
 loop:
 	asm volatile ("hlt"); /* if that didn't work, halt the CPU */
 	goto loop; /* if a NMI is received, halt again */
-}
-
-void	shell(void)
-{
-	char	cmd[128];
-	char	*tmp = 0x0;
-
-	kfs_memset(&cmd, 0, sizeof(cmd));
-
-	get_input(&cmd);
-
-	if (!(kfs_strcmp(cmd, "hexdump\n"))) {
-		for (int i = 0; i < 0xfff; i++) {
-			hexdump(tmp);
-			tmp += 16;
-			for (int i = 0; i < 1000000; i++) {} // fake sleep
-		}
-	}
-	else if (!(kfs_strcmp(cmd, "reboot\n"))) {
-		reboot();
-	}
 }
 
 int	kmain(t_multiboot multiboot)
