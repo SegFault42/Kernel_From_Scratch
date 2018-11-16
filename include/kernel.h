@@ -44,6 +44,7 @@ void	clear_screen(void);
 void	write_to_pos(uint8_t x, uint8_t y, const char *str);
 void	switch_workspace(int keycode);
 void	shell();
+void	display_splash_screen(void);
 //exvoid	init_gdt(void);
 
 #endif

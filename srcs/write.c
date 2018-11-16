@@ -16,3 +16,10 @@ void	write_to_pos(uint8_t x, uint8_t y, const char *str)
 	}
 }
 
+void	display_splash_screen(void)
+{
+	for (int i = 0; i < 967; i++) {
+		kfs_putchar_color(splash[i], LIGHT_GREEN);
+	}
+}
+

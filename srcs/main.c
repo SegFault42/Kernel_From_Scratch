@@ -39,30 +39,19 @@ loop:
 	goto loop; /* if a NMI is received, halt again */
 }
 
-int	kmain(t_multiboot multiboot)
+int	kmain(__attribute__((unused)) t_multiboot multiboot)
 {
-	/*uint8_t *tmp = 0x0;*/
-
 	init_gdt();
 	kfs_clear_screen();
+	display_splash_screen();
 
-	for (int i = 0; i < 967; i++) {
-		kfs_putchar_color(splash[i], LIGHT_GREEN);
-	}
-
-	/*kfs_strcpy(tmp, "HELLO WORLD");*/
-
-	/*for (int i = 0; i < 0xfff; i++) {*/
-	/*hexdump(tmp);*/
-	/*tmp += 16;*/
-	/*for (int i = 0; i < 1000000; i++) {}*/
-	/*}*/
-
+	// Print prompt
 	kfs_putstr_color("$> ", GREEN);
+
+	// exec shell and reprint prompt
 	while (1) {
 		shell();
 		kfs_putstr_color("$> ", GREEN);
-		/*keyboard();*/
 	}
 
 	return (0);
