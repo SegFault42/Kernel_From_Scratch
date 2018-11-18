@@ -1,6 +1,6 @@
 #include "libkfs.h"
 
-void	*kfs_memset(void *b, int c, size_t len)
+void	*memset(void *b, int c, size_t len)
 {
 	size_t	i = 0;
 	char *tmp_b = b;

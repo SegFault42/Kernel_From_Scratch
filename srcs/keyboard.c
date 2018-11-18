@@ -3,8 +3,8 @@
 void	get_input(char buff[])
 {
 	unsigned char	status;
-	char			keycode;
-	uint8_t			idx = 0;
+	unsigned char	keycode;
+	unsigned char	idx = 0;
 
 	for (;;) {
 		status = read_port(KEYBOARD_STATUS_PORT);
@@ -31,7 +31,7 @@ void	get_input(char buff[])
 		}
 		if (idx == 126) {
 			kfs_putstr_color("\nCommand to long\n", RED);
-			kfs_memset(buff, 0, sizeof(buff));
+			memset(buff, 0, sizeof((char *)buff));
 			break ;
 		}
 	}

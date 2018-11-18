@@ -59,7 +59,7 @@ void	kfs_clear_screen(void);
 
 // memory.c
 void	*kfs_memmove(void *dest, const void *src, size_t n);
-void	*kfs_memset(void *b, int c, size_t len);
+void	*memset(void *b, int c, size_t len);
 
 // ctype.c
 int isascii(int c);

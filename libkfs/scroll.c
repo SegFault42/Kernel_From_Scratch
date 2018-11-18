@@ -22,5 +22,5 @@ void	simple_scroll(void)
 	/*move_cursor(0, 24);*/
 
 	// memset to 0 last line
-	kfs_memset(vidptr, 0, MAX_COLUMNS * 2);
+	memset(vidptr, 0, MAX_COLUMNS * 2);
 }
