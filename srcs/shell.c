@@ -9,23 +9,23 @@ static void	kfs_sleep(int second)
 	}
 }
 
-static void count_nb_elem(char *str, char c)
+static int count_nb_elem(char *str, char c)
 {
-	int	nb_elem = 0;
+	int	nb_elem = 1;
 
 	while (*str) {
 		if (*str == c)
 			nb_elem++;
 		str++;
 	}
+
+	return (nb_elem);
 }
 
-static void	strsplit(char *cmd, char split[3][128], char c, int nb_elem)
+static void	strsplit(char *cmd, char split[3][128], char c)
 {
 	int	i = 0;
 	int	j = 0;
-
-	count_nb_elem(cmd, c);
 
 	// loop to reach '\0'
 	while (*cmd) {
@@ -44,7 +44,7 @@ static void	strsplit(char *cmd, char split[3][128], char c, int nb_elem)
 	}
 }
 
-static void	hexdump_cmd(char *cmd)
+static void	hexdump_cmd(char *begin, char *end)
 {
 	void	*tmp = 0x0;
 
@@ -52,7 +52,7 @@ static void	hexdump_cmd(char *cmd)
 	for (int i = 0; i < 0xfff; i++) {
 		hexdump(tmp);
 		tmp += 16;
-		for (int i = 0; i < 1000000; i++) {} // fake sleep
+		kfs_sleep(1);
 	}
 }
 
@@ -63,10 +63,15 @@ void	shell(void)
 
 	get_input(cmd);
 
+	kfs_remove_extra_white_space(cmd);
 	strsplit(cmd, split, ' ');
 
-	if (!(kfs_strcmp(cmd, "hexdump\n"))) {
-		hexdump_cmd(cmd);
+	kfs_putstr(split[0]);
+	if (!(kfs_strcmp(split[0], "hexdump"))) {
+		if (count_nb_elem(cmd, ' ') != 3)
+			kfs_putstr("Usage : hexdump [addr begin] [addr end]\n");
+		else
+			hexdump_cmd(split[1], split[2]);
 	}
 	/*else if (!(kfs_strcmp(cmd, "reboot\n"))) {*/
 		/*reboot();*/

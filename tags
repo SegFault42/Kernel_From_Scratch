@@ -5,20 +5,21 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 ASMC	Makefile	/^ASMC = nasm$/;"	m
-BLACK	libkfs/include/libkfs.h	10;"	d
-BLUE	libkfs/include/libkfs.h	11;"	d
-BROWN	libkfs/include/libkfs.h	16;"	d
+BLACK	libkfs/include/libkfs.h	18;"	d
+BLUE	libkfs/include/libkfs.h	19;"	d
+BROWN	libkfs/include/libkfs.h	24;"	d
 CC	Makefile	/^CC = clang$/;"	m
 CC	libkfs/Makefile	/^CC = gcc$/;"	m
-CURSOR_Y	libkfs/include/libkfs.h	8;"	d
-CYAN	libkfs/include/libkfs.h	13;"	d
-DARK_GREY	libkfs/include/libkfs.h	18;"	d
+CTYPE_H	libkfs/include/ctype.h	2;"	d
+CURSOR_Y	libkfs/include/libkfs.h	16;"	d
+CYAN	libkfs/include/libkfs.h	21;"	d
+DARK_GREY	libkfs/include/libkfs.h	26;"	d
 ENTER_KEY_CODE	include/keyboard.h	9;"	d
 FLAG	Makefile	/^FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs$/;"	m
 FLAG	libkfs/Makefile	/^FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs$/;"	m
 GDT_BEGIN	include/gdt.h	5;"	d
 GDT_H	include/gdt.h	2;"	d
-GREEN	libkfs/include/libkfs.h	12;"	d
+GREEN	libkfs/include/libkfs.h	20;"	d
 HEAD	libkfs/Makefile	/^HEAD = .\/include$/;"	m
 IDT_SIZE	include/keyboard.h	4;"	d
 INCLUDE	Makefile	/^INCLUDE = -I .\/include\/$/;"	m
@@ -33,30 +34,34 @@ KERNEL_H	include/kernel.h	2;"	d
 KEYBOARD_DATA_PORT	include/keyboard.h	5;"	d
 KEYBOARD_H	include/keyboard.h	2;"	d
 KEYBOARD_STATUS_PORT	include/keyboard.h	6;"	d
-LIBFT_H	libkfs/include/libkfs.h	2;"	d
-LIGHT_BLUE	libkfs/include/libkfs.h	19;"	d
-LIGHT_BROWN	libkfs/include/libkfs.h	24;"	d
-LIGHT_CYAN	libkfs/include/libkfs.h	21;"	d
-LIGHT_GREEN	libkfs/include/libkfs.h	20;"	d
-LIGHT_GREY	libkfs/include/libkfs.h	17;"	d
-LIGHT_MAGENTA	libkfs/include/libkfs.h	23;"	d
-LIGHT_RED	libkfs/include/libkfs.h	22;"	d
-MAGENTA	libkfs/include/libkfs.h	15;"	d
-MAX_COLUMNS	libkfs/include/libkfs.h	7;"	d
-MAX_LINES	libkfs/include/libkfs.h	6;"	d
+LIBKFS_H	libkfs/include/libkfs.h	2;"	d
+LIGHT_BLUE	libkfs/include/libkfs.h	27;"	d
+LIGHT_BROWN	libkfs/include/libkfs.h	32;"	d
+LIGHT_CYAN	libkfs/include/libkfs.h	29;"	d
+LIGHT_GREEN	libkfs/include/libkfs.h	28;"	d
+LIGHT_GREY	libkfs/include/libkfs.h	25;"	d
+LIGHT_MAGENTA	libkfs/include/libkfs.h	31;"	d
+LIGHT_RED	libkfs/include/libkfs.h	30;"	d
+MAGENTA	libkfs/include/libkfs.h	23;"	d
+MAX_COLUMNS	libkfs/include/libkfs.h	14;"	d
+MAX_LINES	libkfs/include/libkfs.h	13;"	d
+MEMORY_H	libkfs/include/memory.h	2;"	d
 NAME	Makefile	/^NAME = kernel_SegFault42$/;"	m
 NAME	libkfs/Makefile	/^NAME = libkfs.a$/;"	m
 NB_ENTRIES	include/gdt.h	4;"	d
 OBJS	Makefile	/^OBJS = $(SRCS:.c=.o)$/;"	m
 OBJS	libkfs/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
 ONE_SECOND	srcs/shell.c	3;"	d	file:
-RED	libkfs/include/libkfs.h	14;"	d
+RED	libkfs/include/libkfs.h	22;"	d
+SCROLL_H	libkfs/include/scroll.h	2;"	d
 SRC	libkfs/Makefile	/^SRC = .\/memory.c .\/string.c .\/scroll.c .\/ctype.c$/;"	m
 SRCS	Makefile	/^SRCS = .\/srcs\/main.c\\$/;"	m
 SRC_LD	Makefile	/^SRC_LD = link.ld$/;"	m
-VIDEO_MEM_BEGIN	libkfs/include/libkfs.h	4;"	d
-VIDEO_MEM_END	libkfs/include/libkfs.h	5;"	d
-WHITE	libkfs/include/libkfs.h	25;"	d
+STDINT_H	libkfs/include/stdint.h	2;"	d
+STRING_H	libkfs/include/string.h	2;"	d
+VIDEO_MEM_BEGIN	libkfs/include/libkfs.h	10;"	d
+VIDEO_MEM_END	libkfs/include/libkfs.h	11;"	d
+WHITE	libkfs/include/libkfs.h	33;"	d
 access	include/gdt.h	/^	uint8_t		access;              \/\/ Access flags, determine what ring this segment can be used in.$/;"	m	struct:s_gdt_entry
 addr	include/kernel.h	/^	uint32_t				addr;$/;"	m	struct:s_multiboot
 apm_table	include/kernel.h	/^	uint32_t				apm_table;$/;"	m	struct:s_multiboot
@@ -66,19 +71,20 @@ base_low	include/gdt.h	/^	uint16_t	base_low;            \/\/ The lower 16 bits o
 base_middle	include/gdt.h	/^	uint8_t		base_middle;         \/\/ The next 8 bits of the base.$/;"	m	struct:s_gdt_entry
 bit	srcs/main.c	17;"	d	file:
 bits	entry.s	/^bits 32						; compile in 32 bits$/;"	l
-bool	libkfs/include/libkfs.h	/^typedef uint8_t	bool;$/;"	t
+bool	libkfs/include/stdint.h	/^typedef uint8_t	bool;$/;"	t
 boot_device	include/kernel.h	/^	uint32_t				boot_device;$/;"	m	struct:s_multiboot
 boot_loader_name	include/kernel.h	/^	uint32_t				boot_loader_name;$/;"	m	struct:s_multiboot
 buff_video	include/kernel.h	/^	char		buff_video[(MAX_COLUMNS * MAX_LINES) * 2];$/;"	m	struct:workspace
 check_flag	srcs/main.c	20;"	d	file:
 cmdline	include/kernel.h	/^	uint32_t				cmdline;$/;"	m	struct:s_multiboot
 config_table	include/kernel.h	/^	uint32_t				config_table;$/;"	m	struct:s_multiboot
+count_nb_elem	srcs/shell.c	/^static void count_nb_elem(char *str, char c)$/;"	f	file:
 current_work	srcs/workspace.c	/^uint8_t			current_work = 1;$/;"	v
 display_splash_screen	srcs/write.c	/^void	display_splash_screen(void)$/;"	f
 drives_addr	include/kernel.h	/^	uint32_t				drives_addr;$/;"	m	struct:s_multiboot
 drives_length	include/kernel.h	/^	uint32_t				drives_length;$/;"	m	struct:s_multiboot
 extern	entry.s	/^extern kmain				; kmain defined in kernel_main.c$/;"	l
-false	libkfs/include/libkfs.h	/^	false,$/;"	e	enum:__anon1
+false	libkfs/include/stdint.h	/^	false,$/;"	e	enum:__anon1
 flags	include/kernel.h	/^	uint32_t				flags;$/;"	m	struct:s_multiboot
 gdt_entries	srcs/gdt.c	/^t_gdt_entry	gdt_entries[NB_ENTRIES];$/;"	v
 gdt_flush	entry.s	/^gdt_flush:$/;"	l
@@ -135,20 +141,20 @@ shell	srcs/shell.c	/^void	shell(void)$/;"	f
 shndx	include/kernel.h	/^	uint32_t				shndx;$/;"	m	struct:s_multiboot
 simple_scroll	libkfs/scroll.c	/^void	simple_scroll(void)$/;"	f
 size	include/kernel.h	/^	uint32_t				size;$/;"	m	struct:s_multiboot
-size_t	libkfs/include/libkfs.h	/^typedef long	size_t;$/;"	t
+size_t	libkfs/include/stdint.h	/^typedef long	size_t;$/;"	t
 splash	include/splash.h	/^static const char	*splash =	"\\012\\012\\012\\012\\012\\012\\012\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\333\\333\\273\\000\\333\\333\\273\\000\\000\\000\\333\\333\\273\\333\\333\\273\\000\\000\\333\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\273\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\315\\315\\274\\000\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\333\\333\\273\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\272\\000\\000\\310\\315\\315\\333\\333\\311\\315\\315\\274\\333\\333\\272\\000\\000\\333\\333\\272\\310\\315\\315\\315\\315\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\272\\000\\000\\333\\333\\333\\273\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\333\\333\\333\\333\\333\\272\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\272\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\000\\333\\333\\333\\333\\333\\333\\333\\272\\000\\333\\333\\333\\333\\333\\311\\274\\310\\315\\315\\315\\315\\333\\333\\272\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\311\\315\\315\\333\\333\\272\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\272\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\000\\310\\315\\315\\315\\315\\333\\333\\272\\333\\333\\311\\315\\315\\315\\274\\000\\333\\333\\333\\333\\333\\333\\333\\272\\333\\333\\333\\333\\333\\333\\333\\273\\310\\333\\333\\333\\333\\333\\333\\311\\274\\333\\333\\272\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\333\\333\\272\\310\\333\\333\\333\\333\\333\\333\\311\\274\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\272\\333\\333\\333\\333\\333\\333\\333\\273\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\000\\310\\315\\315\\315\\315\\315\\274\\000\\310\\315\\274\\000\\000\\000\\000\\000\\310\\315\\274\\000\\000\\310\\315\\274\\000\\310\\315\\315\\315\\315\\315\\274\\000\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\274\\000\\000\\000\\000\\000\\000\\000\\000\\310\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\273\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\273\\000\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\273\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\272\\000\\333\\333\\311\\274\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\333\\333\\273\\333\\333\\333\\333\\273\\000\\000\\333\\333\\272\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\333\\333\\333\\311\\274\\000\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\333\\333\\333\\333\\311\\274\\333\\333\\311\\333\\333\\273\\000\\333\\333\\272\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\311\\315\\333\\333\\273\\000\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\311\\315\\315\\333\\333\\273\\333\\333\\272\\310\\333\\333\\273\\333\\333\\272\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\272\\000\\000\\333\\333\\272\\333\\333\\272\\000\\310\\333\\333\\333\\333\\272\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\310\\315\\274\\000\\000\\310\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\274\\000\\000\\310\\315\\274\\310\\315\\274\\000\\000\\310\\315\\315\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000";$/;"	v
 stack_space	entry.s	/^stack_space:$/;"	l
 start	entry.s	/^start:$/;"	l
-strsplit	srcs/shell.c	/^static void	strsplit(char *cmd, char c)$/;"	f	file:
+strsplit	srcs/shell.c	/^static void	strsplit(char *cmd, char split[3][128], char c, int nb_elem)$/;"	f	file:
 switch_workspace	srcs/workspace.c	/^void	switch_workspace(int keycode)$/;"	f
 t_gdt_entry	include/gdt.h	/^} __attribute__((packed)) t_gdt_entry;$/;"	t	typeref:struct:s_gdt_entry
 t_gdt_ptr	include/gdt.h	/^} __attribute__((packed)) t_gdt_ptr;$/;"	t	typeref:struct:s_gdt_ptr
 t_multiboot	include/kernel.h	/^}							t_multiboot;$/;"	t	typeref:struct:s_multiboot
-true	libkfs/include/libkfs.h	/^	true$/;"	e	enum:__anon1
-uint16_t	libkfs/include/libkfs.h	/^typedef short	uint16_t;$/;"	t
-uint32_t	libkfs/include/libkfs.h	/^typedef int		uint32_t;$/;"	t
-uint64_t	libkfs/include/libkfs.h	/^typedef long	uint64_t;$/;"	t
-uint8_t	libkfs/include/libkfs.h	/^typedef char	uint8_t;$/;"	t
+true	libkfs/include/stdint.h	/^	true$/;"	e	enum:__anon1
+uint16_t	libkfs/include/stdint.h	/^typedef short	uint16_t;$/;"	t
+uint32_t	libkfs/include/stdint.h	/^typedef int		uint32_t;$/;"	t
+uint64_t	libkfs/include/stdint.h	/^typedef long	uint64_t;$/;"	t
+uint8_t	libkfs/include/stdint.h	/^typedef char	uint8_t;$/;"	t
 vbe_control_info	include/kernel.h	/^	uint32_t				vbe_control_info;$/;"	m	struct:s_multiboot
 vbe_interface_len	include/kernel.h	/^	uint32_t				vbe_interface_len;$/;"	m	struct:s_multiboot
 vbe_interface_off	include/kernel.h	/^	uint32_t				vbe_interface_off;$/;"	m	struct:s_multiboot

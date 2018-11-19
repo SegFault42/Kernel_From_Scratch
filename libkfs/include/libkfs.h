@@ -1,10 +1,18 @@
-#ifndef LIBFT_H
-#define LIBFT_H
+#ifndef LIBKFS_H
+#define LIBKFS_H
+
+#include "string.h"
+#include "scroll.h"
+#include "memory.h"
+#include "stdint.h"
+#include "ctype.h"
 
 #define VIDEO_MEM_BEGIN	0xb8000
 #define VIDEO_MEM_END	0xb8FA0
+
 #define MAX_LINES		25
 #define MAX_COLUMNS		80
+
 #define CURSOR_Y ((vidptr - (char *)VIDEO_MEM_BEGIN) / 2) / MAX_COLUMNS
 
 #define BLACK			0x00
@@ -24,45 +32,6 @@
 #define LIGHT_BROWN		0x0e
 #define WHITE			0x0f
 
-typedef char	uint8_t;
-typedef short	uint16_t;
-typedef int		uint32_t;
-typedef long	uint64_t;
-typedef long	size_t;
-typedef uint8_t	bool;
-
-enum {
-	false,
-	true
-};
-
 extern char		*vidptr;
-
-// string.c
-void	kfs_putstr(const char *str);
-void	kfs_putstr_color(const char *str, uint8_t color);
-void	kfs_putchar(int c);
-void	kfs_putnbr(int c);
-void	kfs_putchar_color(int c, uint8_t color);
-size_t	kfs_strlen(const char *str);
-int		kfs_strcmp(const char *s1, const char *s2);
-char	*kfs_strcpy(char *dst, const char *src);
-void	printHex(uint8_t key);
-void	printHex16(uint16_t key);
-void	printHex32(uint32_t key);
-void	hexdump(void *addr);
-
-// scroll.c
-void	simple_scroll(void);
-void	move_cursor(uint16_t x, uint16_t y);
-void	kfs_clear_screen(void);
-
-// memory.c
-void	*kfs_memmove(void *dest, const void *src, size_t n);
-void	*memset(void *b, int c, size_t len);
-
-// ctype.c
-int isascii(int c);
-int isprint(int c);
 
 #endif

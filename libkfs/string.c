@@ -1,33 +1,83 @@
 #include "libkfs.h"
 
-void	hexdump(void *addr)
+static char	*skip_blank(char *str)
 {
-	// Print offset
+	while (*str == ' ' || *str == '\n')
+		str++;
+
+	return (str);
+}
+
+void kfs_remove_extra_white_space(char *str)
+{
+	char	*str_ptr = str; // save str address
+	char	array[kfs_strlen(str) + 1]; // alloc space to write formatted str
+	char	*ptr = array; // ptr to manipule array;
+
+	memset(array, 0, kfs_strlen(str) + 1);
+
+	// Remove white space in begining string
+	str = skip_blank(str);
+
+	while (*str) {
+		// decr return to copy a single white space
+		str = skip_blank(str);
+
+		// Copy *str in *ptr
+		*ptr = *str;
+
+		str++;
+		ptr++;
+	}
+
+	// erase str with the new formatted string
+	kfs_strcpy(str_ptr, array);
+}
+
+static void	print_offset(void *addr)
+{
+	// Print offset and padding
 	printHex32((uint32_t)addr);
 	kfs_putstr("  ");
+}
 
-	// Print value in hex
+static void	print_hex_value(void *addr)
+{
+	// print hex value and padding
 	for (int i = 0; i < 16; i++) {
 		printHex(*(uint8_t *)addr);
 
-		if (i == 7) kfs_putstr("  ");
-		else kfs_putstr(" ");
+		if (i == 7)
+ 			kfs_putstr("  ");
+		else
+			kfs_putstr(" ");
+
 		addr++;
 	}
 
-	addr -= 16;
-
 	kfs_putstr(" |");
+}
+
+static void	print_ascii_value(void *addr)
+{
 	// Print value in ascii
 	for (int i = 0; i < 16; i++) {
 		if (isprint(*(uint8_t *)addr))
 			kfs_putchar(*(uint8_t *)addr);
 		else
 			kfs_putchar('.');
+
 		addr++;
 	}
 
-	kfs_putstr("|\n");
+	kfs_putchar('\n');
+}
+
+void	hexdump(void *addr)
+{
+	print_offset(addr);
+	print_hex_value(addr);
+	print_ascii_value(addr);
 }
 
 void	printHex16(uint16_t key)
