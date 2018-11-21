@@ -48,7 +48,6 @@ static void	hexdump_cmd(char *begin, char *end)
 {
 	void	*tmp = 0x0;
 
-
 	for (int i = 0; i < 0xfff; i++) {
 		hexdump(tmp);
 		tmp += 16;
@@ -66,7 +65,6 @@ void	shell(void)
 	kfs_remove_extra_white_space(cmd);
 	strsplit(cmd, split, ' ');
 
-	kfs_putstr(split[0]);
 	if (!(kfs_strcmp(split[0], "hexdump"))) {
 		if (count_nb_elem(cmd, ' ') != 3)
 			kfs_putstr("Usage : hexdump [addr begin] [addr end]\n");

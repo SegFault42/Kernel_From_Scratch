@@ -20,12 +20,19 @@ void kfs_remove_extra_white_space(char *str)
 	str = skip_blank(str);
 
 	while (*str) {
-		// decr return to copy a single white space
+		// copy one space before skipping all spaces
+		if (*str == ' ') {
+			*ptr = ' ';
+			++ptr;
+		}
+
+		// skip all space
 		str = skip_blank(str);
 
 		// Copy *str in *ptr
 		*ptr = *str;
 
+		// incr
 		str++;
 		ptr++;
 	}
@@ -37,7 +44,7 @@ void kfs_remove_extra_white_space(char *str)
 static void	print_offset(void *addr)
 {
 	// Print offset and padding
-	printHex32((uint32_t)addr);
+	kfs_putstr(to_hex_32((uint32_t)addr));
 	kfs_putstr("  ");
 }
 
@@ -45,7 +52,7 @@ static void	print_hex_value(void *addr)
 {
 	// print hex value and padding
 	for (int i = 0; i < 16; i++) {
-		printHex(*(uint8_t *)addr);
+		kfs_putstr(to_hex_8(*(uint8_t *)addr));
 
 		if (i == 7)
  			kfs_putstr("  ");
@@ -80,29 +87,37 @@ void	hexdump(void *addr)
 	print_ascii_value(addr);
 }
 
-void	printHex16(uint16_t key)
+char	*to_hex_16(uint16_t key)
 {
-    printHex((key >> 8) & 0xFF);
-    printHex(key & 0xFF);
+	char	*value = "0000";
+
+	kfs_strcpy(&value[0], to_hex_8((key >> 8) & 0xFF));
+	kfs_strcpy(&value[2], to_hex_8(key & 0xFF));
+
+	return (value);
 }
 
-void	printHex32(uint32_t key)
+char	*to_hex_32(uint32_t key)
 {
-    printHex((key >> 24) & 0xFF);
-    printHex((key >> 16) & 0xFF);
-    printHex((key >> 8) & 0xFF);
-    printHex(key & 0xFF);
+	char	*value = "00000000";
+
+	kfs_strcpy(&value[0], to_hex_8((key >> 24) & 0xFF));
+	kfs_strcpy(&value[2], to_hex_8((key >> 16) & 0xFF));
+	kfs_strcpy(&value[4], to_hex_8((key >> 8) & 0xFF));
+	kfs_strcpy(&value[6], to_hex_8(key & 0xFF));
+
+	return (value);
 }
 
-void	printHex(uint8_t key)
+char	*to_hex_8(uint8_t key)
 {
-    char	*foo = "00";
+    char	*value = "00";
     char	*hex = "0123456789ABCDEF";
 
-    foo[0] = hex[(key >> 4) & 0xF];
-    foo[1] = hex[key & 0xF];
+    value[0] = hex[(key >> 4) & 0xF];
+    value[1] = hex[key & 0xF];
 
-    kfs_putstr(foo);
+	return (value);
 }
 
 char	*kfs_strcpy(char *dst, const char *src)

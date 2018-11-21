@@ -12,9 +12,9 @@ void	kfs_putchar_color(int c, uint8_t color);
 size_t	kfs_strlen(const char *str);
 int		kfs_strcmp(const char *s1, const char *s2);
 char	*kfs_strcpy(char *dst, const char *src);
-void	printHex(uint8_t key);
-void	printHex16(uint16_t key);
-void	printHex32(uint32_t key);
+char	*to_hex_8(uint8_t key);
+char	*to_hex_16(uint16_t key);
+char	*to_hex_32(uint32_t key);
 void	hexdump(void *addr);
 void	kfs_remove_extra_white_space(char *str);
 
