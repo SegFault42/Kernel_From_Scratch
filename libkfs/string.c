@@ -77,7 +77,7 @@ static void	print_ascii_value(void *addr)
 		addr++;
 	}
 
-	kfs_putchar('\n');
+	kfs_putchar_ln('|');
 }
 
 void	hexdump(void *addr)
@@ -148,25 +148,31 @@ int	kfs_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-void kfs_putnbr(int n)
+void	kfs_putnbr_ln(int nb)
 {
-	if (n == -2147483648)
+	kfs_putnbr(nb);
+	kfs_putchar('\n');
+}
+
+void	kfs_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
 		kfs_putstr("-2");
-		n = 147483648;
+		nb = 147483648;
 	}
-	if (n < 0)
+	if (nb < 0)
 	{
 		kfs_putchar('-');
-		n = -n;
+		nb = -nb;
 	}
-	if (n > 9)
+	if (nb > 9)
 	{
-		kfs_putnbr(n / 10);
-		kfs_putnbr(n % 10);
+		kfs_putnbr(nb / 10);
+		kfs_putnbr(nb % 10);
 	}
 	else
-		kfs_putchar('0' + n);
+		kfs_putchar('0' + nb);
 }
 
 void	kfs_putchar_color(int c, uint8_t color)
@@ -217,9 +223,22 @@ void	kfs_putchar(int c)
 	kfs_putchar_color(c, LIGHT_GREY);
 }
 
+void	kfs_putchar_ln(int c)
+{
+	kfs_putchar_color(c, LIGHT_GREY);
+	kfs_putchar_color('\n', LIGHT_GREY);
+
+}
+
 void	kfs_putstr(const char *str)
 {
 	kfs_putstr_color(str, LIGHT_GREY);
+}
+
+void	kfs_putstr_ln(const char *str)
+{
+	kfs_putstr_color(str, LIGHT_GREY);
+	kfs_putchar('\n');
 }
 
 void	kfs_putstr_color(const char *str, uint8_t color)
@@ -240,4 +259,35 @@ void	kfs_clear_screen(void)
 		vidptr[i+1]= 0x0;
 		i += 2;
 	}
+}
+
+int	kfs_atoi(const char *str)
+{
+	int		out = 0;
+	char	*ptr = (char *)str;
+	bool	positif = true;
+
+	kfs_remove_extra_white_space(ptr);
+	
+	// check sign
+	if (*ptr == '-') {
+		positif = false;
+	}
+
+	// if sign is present incr by 1
+	if (*ptr == '+' || *ptr == '-')
+		++ptr;
+
+	// loop to convert from array to integer
+	while (*ptr >= '0' && *ptr <= '9') {
+		out = out * 10 + *ptr - '0';
+		ptr++;
+	}
+
+	// transform to negatif if is negatif
+	if (positif == false) {
+		out = out * -1;
+	}
+
+	return (out);
 }

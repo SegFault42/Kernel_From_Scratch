@@ -44,13 +44,11 @@ static void	strsplit(char *cmd, char split[3][128], char c)
 	}
 }
 
-static void	hexdump_cmd(char *begin, char *end)
+static void	hexdump_cmd(int addr, int size)
 {
-	void	*tmp = 0x0;
-
-	for (int i = 0; i < 0xfff; i++) {
-		hexdump(tmp);
-		tmp += 16;
+	for (int i = 0; i < size / 16; i++) {
+		hexdump(addr);
+		addr += 16;
 		kfs_sleep(1);
 	}
 }
@@ -60,16 +58,24 @@ void	shell(void)
 	char	cmd[128] = {0};
 	char	split[3][128] = {0};
 
+	// wait for user command
 	get_input(cmd);
 
+	// clean command (removing extra white space)
 	kfs_remove_extra_white_space(cmd);
+
+	// split for parsw command
 	strsplit(cmd, split, ' ');
 
 	if (!(kfs_strcmp(split[0], "hexdump"))) {
+		// Check if command good formatted
 		if (count_nb_elem(cmd, ' ') != 3)
-			kfs_putstr("Usage : hexdump [addr begin] [addr end]\n");
-		else
-			hexdump_cmd(split[1], split[2]);
+			kfs_putstr("Usage : hexdump addr size\n");
+		else {
+			uint32_t addr = kfs_atoi(split[1]);
+			uint32_t size = kfs_atoi(split[2]);
+			hexdump_cmd(addr, size);
+		}
 	}
 	/*else if (!(kfs_strcmp(cmd, "reboot\n"))) {*/
 		/*reboot();*/
