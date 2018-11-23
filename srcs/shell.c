@@ -44,12 +44,41 @@ static void	strsplit(char *cmd, char split[3][128], char c)
 	}
 }
 
-static void	hexdump_cmd(int addr, int size)
+static void	hexdump_cmd(char *arg1, char *arg2)
 {
-	for (int i = 0; i < size / 16; i++) {
-		hexdump(addr);
-		addr += 16;
-		kfs_sleep(1);
+	uint32_t addr = 0;
+	uint32_t size = 0;
+
+	// Check if command good formatted
+	/*if (count_nb_elem(cmd, ' ') != 3)*/
+	if (*arg1 == 0 || *arg2 == 0) {
+		kfs_putstr_ln("Usage   : hexdump addr size");
+		kfs_putstr_ln("Example : hexdump 1000 60");
+	}
+	else {
+		addr = kfs_atoi(arg1);
+		size = kfs_atoi(arg2);
+
+		for (int i = 0; i < size / 16; i++) {
+			hexdump((void *)addr);
+			addr += 16;
+			kfs_sleep(1 / 2);
+		}
+	}
+}
+
+// write addr "message"
+static void	write_cmd(const char *addr_str, const char *str)
+{
+	uint32_t	addr = 0;
+
+	if (*str == 0 || *addr_str == 0) {
+		kfs_putstr_ln("Usage   : write addr string");
+		kfs_putstr_ln("Example : write 1000 hello_world");
+	} else {
+		addr = kfs_atoi(addr_str);
+		kfs_memmove((void *)addr, str, kfs_strlen(str));
+		kfs_putstr_ln("write success !");
 	}
 }
 
@@ -68,14 +97,9 @@ void	shell(void)
 	strsplit(cmd, split, ' ');
 
 	if (!(kfs_strcmp(split[0], "hexdump"))) {
-		// Check if command good formatted
-		if (count_nb_elem(cmd, ' ') != 3)
-			kfs_putstr("Usage : hexdump addr size\n");
-		else {
-			uint32_t addr = kfs_atoi(split[1]);
-			uint32_t size = kfs_atoi(split[2]);
-			hexdump_cmd(addr, size);
-		}
+		hexdump_cmd(split[1], split[2]);
+	} else if (!(kfs_strcmp(split[0], "write"))) {
+		write_cmd(split[1], split[2]);
 	}
 	/*else if (!(kfs_strcmp(cmd, "reboot\n"))) {*/
 		/*reboot();*/
