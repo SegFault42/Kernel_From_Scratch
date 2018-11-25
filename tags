@@ -1,169 +1,200 @@
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
-!_TAG_PROGRAM_NAME	Exuberant Ctags	//
-!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+$(NAME)	Makefile	/^$(NAME): $(OBJS) .\/include\/kernel.h .\/include\/keyboard.h$/;"	t
+$(NAME)	libkfs/Makefile	/^$(NAME): $(OBJS) .\/include\/libkfs.h$/;"	t
+%.o	Makefile	/^%.o : %.c$/;"	t
+%.o	libkfs/Makefile	/^%.o : %.c $(HEAD)$/;"	t
+.bss	link.ld	/^  .bss  : { *(.bss)  }$/;"	S
+.data	link.ld	/^  .data : { *(.data) }$/;"	S
+.multiboot	link.ld	/^  .multiboot : { *(.multiboot) }$/;"	S
+.text	link.ld	/^  .text : { *(.text) }$/;"	S
 ASMC	Makefile	/^ASMC = nasm$/;"	m
-BLACK	libkfs/include/libkfs.h	18;"	d
-BLUE	libkfs/include/libkfs.h	19;"	d
-BROWN	libkfs/include/libkfs.h	24;"	d
+BLACK	libkfs/include/libkfs.h	/^#define BLACK	/;"	d
+BLUE	libkfs/include/libkfs.h	/^#define BLUE	/;"	d
+BROWN	libkfs/include/libkfs.h	/^#define BROWN	/;"	d
 CC	Makefile	/^CC = clang$/;"	m
 CC	libkfs/Makefile	/^CC = gcc$/;"	m
-CTYPE_H	libkfs/include/ctype.h	2;"	d
-CURSOR_Y	libkfs/include/libkfs.h	16;"	d
-CYAN	libkfs/include/libkfs.h	21;"	d
-DARK_GREY	libkfs/include/libkfs.h	26;"	d
-ENTER_KEY_CODE	include/keyboard.h	9;"	d
+CTYPE_H	libkfs/include/ctype.h	/^#define CTYPE_H$/;"	d
+CURSOR_Y	libkfs/include/libkfs.h	/^#define CURSOR_Y /;"	d
+CYAN	libkfs/include/libkfs.h	/^#define CYAN	/;"	d
+DARK_GREY	libkfs/include/libkfs.h	/^#define DARK_GREY	/;"	d
+ENTER_KEY_CODE	include/keyboard.h	/^#define ENTER_KEY_CODE	/;"	d
 FLAG	Makefile	/^FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs$/;"	m
 FLAG	libkfs/Makefile	/^FLAG = -m32 -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs$/;"	m
-GDT_BEGIN	include/gdt.h	5;"	d
-GDT_H	include/gdt.h	2;"	d
-GREEN	libkfs/include/libkfs.h	20;"	d
+GDT_BEGIN	include/gdt.h	/^#define GDT_BEGIN /;"	d
+GDT_H	include/gdt.h	/^#define GDT_H$/;"	d
+GREEN	libkfs/include/libkfs.h	/^#define GREEN	/;"	d
 HEAD	libkfs/Makefile	/^HEAD = .\/include$/;"	m
-IDT_SIZE	include/keyboard.h	4;"	d
+IDT_SIZE	include/keyboard.h	/^#define IDT_SIZE	/;"	d
 INCLUDE	Makefile	/^INCLUDE = -I .\/include\/$/;"	m
-INTERRUPT_GATE	include/keyboard.h	7;"	d
-KBRD_BIT_KDATA	srcs/main.c	11;"	d	file:
-KBRD_BIT_UDATA	srcs/main.c	12;"	d	file:
-KBRD_INTRFC	srcs/main.c	8;"	d	file:
-KBRD_IO	srcs/main.c	14;"	d	file:
-KBRD_RESET	srcs/main.c	15;"	d	file:
-KERNEL_CODE_SEGMENT_OFFSET	include/keyboard.h	8;"	d
-KERNEL_H	include/kernel.h	2;"	d
-KEYBOARD_DATA_PORT	include/keyboard.h	5;"	d
-KEYBOARD_H	include/keyboard.h	2;"	d
-KEYBOARD_STATUS_PORT	include/keyboard.h	6;"	d
-LIBKFS_H	libkfs/include/libkfs.h	2;"	d
-LIGHT_BLUE	libkfs/include/libkfs.h	27;"	d
-LIGHT_BROWN	libkfs/include/libkfs.h	32;"	d
-LIGHT_CYAN	libkfs/include/libkfs.h	29;"	d
-LIGHT_GREEN	libkfs/include/libkfs.h	28;"	d
-LIGHT_GREY	libkfs/include/libkfs.h	25;"	d
-LIGHT_MAGENTA	libkfs/include/libkfs.h	31;"	d
-LIGHT_RED	libkfs/include/libkfs.h	30;"	d
-MAGENTA	libkfs/include/libkfs.h	23;"	d
-MAX_COLUMNS	libkfs/include/libkfs.h	14;"	d
-MAX_LINES	libkfs/include/libkfs.h	13;"	d
-MEMORY_H	libkfs/include/memory.h	2;"	d
+INTERRUPT_GATE	include/keyboard.h	/^#define INTERRUPT_GATE	/;"	d
+KBRD_BIT_KDATA	srcs/main.c	/^#define KBRD_BIT_KDATA /;"	d	file:
+KBRD_BIT_UDATA	srcs/main.c	/^#define KBRD_BIT_UDATA /;"	d	file:
+KBRD_INTRFC	srcs/main.c	/^#define KBRD_INTRFC /;"	d	file:
+KBRD_IO	srcs/main.c	/^#define KBRD_IO /;"	d	file:
+KBRD_RESET	srcs/main.c	/^#define KBRD_RESET /;"	d	file:
+KERNEL_CODE_SEGMENT_OFFSET	include/keyboard.h	/^#define KERNEL_CODE_SEGMENT_OFFSET	/;"	d
+KERNEL_H	include/kernel.h	/^#define KERNEL_H$/;"	d
+KEYBOARD_DATA_PORT	include/keyboard.h	/^#define KEYBOARD_DATA_PORT	/;"	d
+KEYBOARD_H	include/keyboard.h	/^#define KEYBOARD_H$/;"	d
+KEYBOARD_STATUS_PORT	include/keyboard.h	/^#define KEYBOARD_STATUS_PORT	/;"	d
+LIBKFS_H	libkfs/include/libkfs.h	/^#define LIBKFS_H$/;"	d
+LIGHT_BLUE	libkfs/include/libkfs.h	/^#define LIGHT_BLUE	/;"	d
+LIGHT_BROWN	libkfs/include/libkfs.h	/^#define LIGHT_BROWN	/;"	d
+LIGHT_CYAN	libkfs/include/libkfs.h	/^#define LIGHT_CYAN	/;"	d
+LIGHT_GREEN	libkfs/include/libkfs.h	/^#define LIGHT_GREEN	/;"	d
+LIGHT_GREY	libkfs/include/libkfs.h	/^#define LIGHT_GREY	/;"	d
+LIGHT_MAGENTA	libkfs/include/libkfs.h	/^#define LIGHT_MAGENTA	/;"	d
+LIGHT_RED	libkfs/include/libkfs.h	/^#define LIGHT_RED	/;"	d
+MAGENTA	libkfs/include/libkfs.h	/^#define MAGENTA	/;"	d
+MAX_COLUMNS	libkfs/include/libkfs.h	/^#define MAX_COLUMNS	/;"	d
+MAX_LINES	libkfs/include/libkfs.h	/^#define MAX_LINES	/;"	d
+MEMORY_H	libkfs/include/memory.h	/^#define MEMORY_H$/;"	d
 NAME	Makefile	/^NAME = kernel_SegFault42$/;"	m
 NAME	libkfs/Makefile	/^NAME = libkfs.a$/;"	m
-NB_ENTRIES	include/gdt.h	4;"	d
+NB_ENTRIES	include/gdt.h	/^#define NB_ENTRIES /;"	d
+NULL	libkfs/include/stdint.h	/^#define NULL /;"	d
 OBJS	Makefile	/^OBJS = $(SRCS:.c=.o)$/;"	m
 OBJS	libkfs/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
-ONE_SECOND	srcs/shell.c	3;"	d	file:
-RED	libkfs/include/libkfs.h	22;"	d
-SCROLL_H	libkfs/include/scroll.h	2;"	d
+ONE_SECOND	srcs/shell.c	/^#define ONE_SECOND /;"	d	file:
+RED	libkfs/include/libkfs.h	/^#define RED	/;"	d
+SCROLL_H	libkfs/include/scroll.h	/^#define SCROLL_H$/;"	d
 SRC	libkfs/Makefile	/^SRC = .\/memory.c .\/string.c .\/scroll.c .\/ctype.c$/;"	m
 SRCS	Makefile	/^SRCS = .\/srcs\/main.c\\$/;"	m
 SRC_LD	Makefile	/^SRC_LD = link.ld$/;"	m
-STDINT_H	libkfs/include/stdint.h	2;"	d
-STRING_H	libkfs/include/string.h	2;"	d
-VIDEO_MEM_BEGIN	libkfs/include/libkfs.h	10;"	d
-VIDEO_MEM_END	libkfs/include/libkfs.h	11;"	d
-WHITE	libkfs/include/libkfs.h	33;"	d
-access	include/gdt.h	/^	uint8_t		access;              \/\/ Access flags, determine what ring this segment can be used in.$/;"	m	struct:s_gdt_entry
-addr	include/kernel.h	/^	uint32_t				addr;$/;"	m	struct:s_multiboot
-apm_table	include/kernel.h	/^	uint32_t				apm_table;$/;"	m	struct:s_multiboot
-base	include/gdt.h	/^	uint32_t	base;                \/\/ The address of the first gdt_entry_t struct.$/;"	m	struct:s_gdt_ptr
-base_high	include/gdt.h	/^	uint8_t		base_high;           \/\/ The last 8 bit$/;"	m	struct:s_gdt_entry
-base_low	include/gdt.h	/^	uint16_t	base_low;            \/\/ The lower 16 bits of the base.$/;"	m	struct:s_gdt_entry
-base_middle	include/gdt.h	/^	uint8_t		base_middle;         \/\/ The next 8 bits of the base.$/;"	m	struct:s_gdt_entry
-bit	srcs/main.c	17;"	d	file:
+STDINT_H	libkfs/include/stdint.h	/^#define STDINT_H$/;"	d
+STRING_H	libkfs/include/string.h	/^#define STRING_H$/;"	d
+VIDEO_MEM_BEGIN	libkfs/include/libkfs.h	/^#define VIDEO_MEM_BEGIN	/;"	d
+VIDEO_MEM_END	libkfs/include/libkfs.h	/^#define VIDEO_MEM_END	/;"	d
+WHITE	libkfs/include/libkfs.h	/^#define WHITE	/;"	d
+__anon63ad094e0103	libkfs/include/stdint.h	/^enum {$/;"	g
+access	include/gdt.h	/^	uint8_t		access;              \/\/ Access flags, determine what ring this segment can be used i/;"	m	struct:s_gdt_entry	typeref:typename:uint8_t
+addr	include/kernel.h	/^	uint32_t				addr;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+all	Makefile	/^all:$(NAME)$/;"	t
+all	libkfs/Makefile	/^all: $(NAME)$/;"	t
+apm_table	include/kernel.h	/^	uint32_t				apm_table;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+base	include/gdt.h	/^	uint32_t	base;                \/\/ The address of the first gdt_entry_t struct.$/;"	m	struct:s_gdt_ptr	typeref:typename:uint32_t
+base_high	include/gdt.h	/^	uint8_t		base_high;           \/\/ The last 8 bit$/;"	m	struct:s_gdt_entry	typeref:typename:uint8_t
+base_low	include/gdt.h	/^	uint16_t	base_low;            \/\/ The lower 16 bits of the base.$/;"	m	struct:s_gdt_entry	typeref:typename:uint16_t
+base_middle	include/gdt.h	/^	uint8_t		base_middle;         \/\/ The next 8 bits of the base.$/;"	m	struct:s_gdt_entry	typeref:typename:uint8_t
+bit	srcs/main.c	/^#define bit(/;"	d	file:
 bits	entry.s	/^bits 32						; compile in 32 bits$/;"	l
-bool	libkfs/include/stdint.h	/^typedef uint8_t	bool;$/;"	t
-boot_device	include/kernel.h	/^	uint32_t				boot_device;$/;"	m	struct:s_multiboot
-boot_loader_name	include/kernel.h	/^	uint32_t				boot_loader_name;$/;"	m	struct:s_multiboot
-buff_video	include/kernel.h	/^	char		buff_video[(MAX_COLUMNS * MAX_LINES) * 2];$/;"	m	struct:workspace
-check_flag	srcs/main.c	20;"	d	file:
-cmdline	include/kernel.h	/^	uint32_t				cmdline;$/;"	m	struct:s_multiboot
-config_table	include/kernel.h	/^	uint32_t				config_table;$/;"	m	struct:s_multiboot
-count_nb_elem	srcs/shell.c	/^static void count_nb_elem(char *str, char c)$/;"	f	file:
-current_work	srcs/workspace.c	/^uint8_t			current_work = 1;$/;"	v
-display_splash_screen	srcs/write.c	/^void	display_splash_screen(void)$/;"	f
-drives_addr	include/kernel.h	/^	uint32_t				drives_addr;$/;"	m	struct:s_multiboot
-drives_length	include/kernel.h	/^	uint32_t				drives_length;$/;"	m	struct:s_multiboot
+boot_device	include/kernel.h	/^	uint32_t				boot_device;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+boot_loader_name	include/kernel.h	/^	uint32_t				boot_loader_name;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+buff_video	include/kernel.h	/^	char		buff_video[(MAX_COLUMNS * MAX_LINES) * 2];$/;"	m	struct:workspace	typeref:typename:char[]
+check_flag	srcs/main.c	/^#define check_flag(/;"	d	file:
+clean	Makefile	/^clean:$/;"	t
+clean	libkfs/Makefile	/^clean:$/;"	t
+cmdline	include/kernel.h	/^	uint32_t				cmdline;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+config_table	include/kernel.h	/^	uint32_t				config_table;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+count_nb_elem	srcs/shell.c	/^static int count_nb_elem(char *str, char c)$/;"	f	typeref:typename:int	file:
+current_work	srcs/workspace.c	/^uint8_t			current_work = 1;$/;"	v	typeref:typename:uint8_t
+display_splash_screen	srcs/write.c	/^void	display_splash_screen(void)$/;"	f	typeref:typename:void
+drives_addr	include/kernel.h	/^	uint32_t				drives_addr;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+drives_length	include/kernel.h	/^	uint32_t				drives_length;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+exec_cmd	srcs/shell.c	/^void	exec_cmd(char split[3][128])$/;"	f	typeref:typename:void
 extern	entry.s	/^extern kmain				; kmain defined in kernel_main.c$/;"	l
-false	libkfs/include/stdint.h	/^	false,$/;"	e	enum:__anon1
-flags	include/kernel.h	/^	uint32_t				flags;$/;"	m	struct:s_multiboot
-gdt_entries	srcs/gdt.c	/^t_gdt_entry	gdt_entries[NB_ENTRIES];$/;"	v
+fclean	Makefile	/^fclean: clean$/;"	t
+fclean	libkfs/Makefile	/^fclean: clean$/;"	t
+flags	include/kernel.h	/^	uint32_t				flags;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+flush	entry.s	/^.flush:$/;"	l
+gdt_entries	srcs/gdt.c	/^t_gdt_entry	gdt_entries[NB_ENTRIES];$/;"	v	typeref:typename:t_gdt_entry[]
 gdt_flush	entry.s	/^gdt_flush:$/;"	l
-gdt_ptr	srcs/gdt.c	/^t_gdt_ptr		gdt_ptr;$/;"	v
-gdt_set_gate	srcs/gdt.c	/^static void gdt_set_gate(int num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran)$/;"	f	file:
-get_input	srcs/keyboard.c	/^void	get_input(char buff[])$/;"	f
+gdt_ptr	srcs/gdt.c	/^t_gdt_ptr		gdt_ptr;$/;"	v	typeref:typename:t_gdt_ptr
+gdt_set_gate	srcs/gdt.c	/^static void gdt_set_gate(int num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran)$/;"	f	typeref:typename:void	file:
+get_input	srcs/keyboard.c	/^void	get_input(char buff[])$/;"	f	typeref:typename:void
 global	entry.s	/^global gdt_flush$/;"	l
 global	entry.s	/^global read_port$/;"	l
 global	entry.s	/^global start$/;"	l
 global	entry.s	/^global write_port$/;"	l
-granularity	include/gdt.h	/^	uint8_t		granularity;$/;"	m	struct:s_gdt_entry
-hexdump	libkfs/string.c	/^void	hexdump(void *addr)$/;"	f
-hexdump_cmd	srcs/shell.c	/^static void	hexdump_cmd(char *cmd)$/;"	f	file:
-init_gdt	srcs/gdt.c	/^void	init_gdt(void)$/;"	f
-isascii	libkfs/ctype.c	/^int isascii(int c)$/;"	f
-isprint	libkfs/ctype.c	/^int isprint(int c)$/;"	f
-keyboard	srcs/keyboard.c	/^void	keyboard(void)$/;"	f
-keyboard_map	include/keyboard.h	/^static const unsigned char	keyboard_map[] = {$/;"	v
-kfs_clear_screen	libkfs/string.c	/^void	kfs_clear_screen(void)$/;"	f
-kfs_memmove	libkfs/memory.c	/^void	*kfs_memmove(void *dest, const void *src, size_t n)$/;"	f
-kfs_putchar	libkfs/string.c	/^void	kfs_putchar(int c)$/;"	f
-kfs_putchar_color	libkfs/string.c	/^void	kfs_putchar_color(int c, uint8_t color)$/;"	f
-kfs_putnbr	libkfs/string.c	/^void kfs_putnbr(int n)$/;"	f
-kfs_putstr	libkfs/string.c	/^void	kfs_putstr(const char *str)$/;"	f
-kfs_putstr_color	libkfs/string.c	/^void	kfs_putstr_color(const char *str, uint8_t color)$/;"	f
-kfs_sleep	srcs/shell.c	/^static void	kfs_sleep(int second)$/;"	f	file:
-kfs_strcmp	libkfs/string.c	/^int	kfs_strcmp(const char *s1, const char *s2)$/;"	f
-kfs_strcpy	libkfs/string.c	/^char	*kfs_strcpy(char *dst, const char *src)$/;"	f
-kfs_strlen	libkfs/string.c	/^size_t	kfs_strlen(const char *str)$/;"	f
-kmain	srcs/main.c	/^int	kmain(__attribute__((unused)) t_multiboot multiboot)$/;"	f
-limit	include/gdt.h	/^	uint16_t	limit;               \/\/ The upper 16 bits of all selector limits.$/;"	m	struct:s_gdt_ptr
-limit_low	include/gdt.h	/^	uint16_t	limit_low;           \/\/ The lower 16 bits of the limit.$/;"	m	struct:s_gdt_entry
-mem_lower	include/kernel.h	/^	uint32_t				mem_lower;$/;"	m	struct:s_multiboot
-mem_upper	include/kernel.h	/^	uint32_t				mem_upper;$/;"	m	struct:s_multiboot
-memset	libkfs/memory.c	/^void	*memset(void *b, int c, size_t len)$/;"	f
-mmap_addr	include/kernel.h	/^	uint32_t				mmap_addr;$/;"	m	struct:s_multiboot
-mmap_length	include/kernel.h	/^	uint32_t				mmap_length;$/;"	m	struct:s_multiboot
-mods_addr	include/kernel.h	/^	uint32_t				mods_addr;$/;"	m	struct:s_multiboot
-mods_count	include/kernel.h	/^	uint32_t				mods_count;$/;"	m	struct:s_multiboot
-move_cursor	libkfs/scroll.c	/^void	move_cursor(uint16_t x, uint16_t y)$/;"	f
-num	include/kernel.h	/^	uint32_t				num;$/;"	m	struct:s_multiboot
-printHex	libkfs/string.c	/^void	printHex(uint8_t key)$/;"	f
-printHex16	libkfs/string.c	/^void	printHex16(uint16_t key)$/;"	f
-printHex32	libkfs/string.c	/^void	printHex32(uint32_t key)$/;"	f
-ptr	include/kernel.h	/^	char		*ptr;$/;"	m	struct:workspace
+granularity	include/gdt.h	/^	uint8_t		granularity;$/;"	m	struct:s_gdt_entry	typeref:typename:uint8_t
+hexdump	libkfs/string.c	/^void	hexdump(void *addr)$/;"	f	typeref:typename:void
+hexdump_cmd	srcs/shell.c	/^static void	hexdump_cmd(char *arg1, char *arg2)$/;"	f	typeref:typename:void	file:
+init_gdt	srcs/gdt.c	/^void	init_gdt(void)$/;"	f	typeref:typename:void
+isascii	libkfs/ctype.c	/^int isascii(int c)$/;"	f	typeref:typename:int
+isprint	libkfs/ctype.c	/^int isprint(int c)$/;"	f	typeref:typename:int
+keyboard	srcs/keyboard.c	/^void	keyboard(void)$/;"	f	typeref:typename:void
+keyboard_map	include/keyboard.h	/^static const unsigned char	keyboard_map[] = {$/;"	v	typeref:typename:const unsigned char[]
+kfs_atoi	libkfs/string.c	/^int	kfs_atoi(const char *str)$/;"	f	typeref:typename:int
+kfs_clear_screen	libkfs/string.c	/^void	kfs_clear_screen(void)$/;"	f	typeref:typename:void
+kfs_memmove	libkfs/memory.c	/^void	*kfs_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+kfs_putchar	libkfs/string.c	/^void	kfs_putchar(int c)$/;"	f	typeref:typename:void
+kfs_putchar_color	libkfs/string.c	/^void	kfs_putchar_color(int c, uint8_t color)$/;"	f	typeref:typename:void
+kfs_putchar_ln	libkfs/string.c	/^void	kfs_putchar_ln(int c)$/;"	f	typeref:typename:void
+kfs_putnbr	libkfs/string.c	/^void	kfs_putnbr(int nb)$/;"	f	typeref:typename:void
+kfs_putnbr_ln	libkfs/string.c	/^void	kfs_putnbr_ln(int nb)$/;"	f	typeref:typename:void
+kfs_putstr	libkfs/string.c	/^void	kfs_putstr(const char *str)$/;"	f	typeref:typename:void
+kfs_putstr_color	libkfs/string.c	/^void	kfs_putstr_color(const char *str, uint8_t color)$/;"	f	typeref:typename:void
+kfs_putstr_ln	libkfs/string.c	/^void	kfs_putstr_ln(const char *str)$/;"	f	typeref:typename:void
+kfs_remove_extra_white_space	libkfs/string.c	/^void kfs_remove_extra_white_space(char *str)$/;"	f	typeref:typename:void
+kfs_sleep	srcs/shell.c	/^static void	kfs_sleep(int second)$/;"	f	typeref:typename:void	file:
+kfs_strcmp	libkfs/string.c	/^int	kfs_strcmp(const char *s1, const char *s2)$/;"	f	typeref:typename:int
+kfs_strcpy	libkfs/string.c	/^char	*kfs_strcpy(char *dst, const char *src)$/;"	f	typeref:typename:char *
+kfs_strlen	libkfs/string.c	/^size_t	kfs_strlen(const char *str)$/;"	f	typeref:typename:size_t
+kmain	srcs/main.c	/^int	kmain(__attribute__((unused)) t_multiboot multiboot)$/;"	f	typeref:typename:int
+limit	include/gdt.h	/^	uint16_t	limit;               \/\/ The upper 16 bits of all selector limits.$/;"	m	struct:s_gdt_ptr	typeref:typename:uint16_t
+limit_low	include/gdt.h	/^	uint16_t	limit_low;           \/\/ The lower 16 bits of the limit.$/;"	m	struct:s_gdt_entry	typeref:typename:uint16_t
+mc	libkfs/Makefile	/^mc: fclean all clean$/;"	t
+mem_lower	include/kernel.h	/^	uint32_t				mem_lower;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+mem_upper	include/kernel.h	/^	uint32_t				mem_upper;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+memset	libkfs/memory.c	/^void	*memset(void *b, int c, size_t len)$/;"	f	typeref:typename:void *
+mmap_addr	include/kernel.h	/^	uint32_t				mmap_addr;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+mmap_length	include/kernel.h	/^	uint32_t				mmap_length;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+mods_addr	include/kernel.h	/^	uint32_t				mods_addr;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+mods_count	include/kernel.h	/^	uint32_t				mods_count;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+mov	entry.s	/^	mov ds, ax        ; Load all data segment selectors$/;"	d
+move_cursor	libkfs/scroll.c	/^void	move_cursor(uint16_t x, uint16_t y)$/;"	f	typeref:typename:void
+num	include/kernel.h	/^	uint32_t				num;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+out	entry.s	/^	out dx, al$/;"	d
+print_ascii_value	libkfs/string.c	/^static void	print_ascii_value(void *addr)$/;"	f	typeref:typename:void	file:
+print_hex_value	libkfs/string.c	/^static void	print_hex_value(void *addr)$/;"	f	typeref:typename:void	file:
+print_offset	libkfs/string.c	/^static void	print_offset(void *addr)$/;"	f	typeref:typename:void	file:
+ptr	include/kernel.h	/^	char		*ptr;$/;"	m	struct:workspace	typeref:typename:char *
+qemu	Makefile	/^qemu:$/;"	t
+re	Makefile	/^re: fclean all qemu$/;"	t
+re	libkfs/Makefile	/^re: fclean all$/;"	t
 read_port	entry.s	/^read_port:$/;"	l
-reboot	srcs/main.c	/^void reboot(void)$/;"	f
+reboot	srcs/main.c	/^void reboot(void)$/;"	f	typeref:typename:void
 s_gdt_entry	include/gdt.h	/^typedef struct	s_gdt_entry$/;"	s
 s_gdt_ptr	include/gdt.h	/^typedef struct	s_gdt_ptr$/;"	s
 s_multiboot	include/kernel.h	/^typedef struct				s_multiboot$/;"	s
-section	entry.s	/^section .bss$/;"	l
-section	entry.s	/^section .text$/;"	l
-shell	srcs/shell.c	/^void	shell(void)$/;"	f
-shndx	include/kernel.h	/^	uint32_t				shndx;$/;"	m	struct:s_multiboot
-simple_scroll	libkfs/scroll.c	/^void	simple_scroll(void)$/;"	f
-size	include/kernel.h	/^	uint32_t				size;$/;"	m	struct:s_multiboot
-size_t	libkfs/include/stdint.h	/^typedef long	size_t;$/;"	t
-splash	include/splash.h	/^static const char	*splash =	"\\012\\012\\012\\012\\012\\012\\012\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\333\\333\\273\\000\\333\\333\\273\\000\\000\\000\\333\\333\\273\\333\\333\\273\\000\\000\\333\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\273\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\315\\315\\274\\000\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\333\\333\\273\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\272\\000\\000\\310\\315\\315\\333\\333\\311\\315\\315\\274\\333\\333\\272\\000\\000\\333\\333\\272\\310\\315\\315\\315\\315\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\272\\000\\000\\333\\333\\333\\273\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\333\\333\\333\\333\\333\\272\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\272\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\000\\333\\333\\333\\333\\333\\333\\333\\272\\000\\333\\333\\333\\333\\333\\311\\274\\310\\315\\315\\315\\315\\333\\333\\272\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\311\\315\\315\\333\\333\\272\\333\\333\\272\\000\\000\\000\\333\\333\\272\\333\\333\\272\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\000\\310\\315\\315\\315\\315\\333\\333\\272\\333\\333\\311\\315\\315\\315\\274\\000\\333\\333\\333\\333\\333\\333\\333\\272\\333\\333\\333\\333\\333\\333\\333\\273\\310\\333\\333\\333\\333\\333\\333\\311\\274\\333\\333\\272\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\333\\333\\272\\310\\333\\333\\333\\333\\333\\333\\311\\274\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\272\\333\\333\\333\\333\\333\\333\\333\\273\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\000\\310\\315\\315\\315\\315\\315\\274\\000\\310\\315\\274\\000\\000\\000\\000\\000\\310\\315\\274\\000\\000\\310\\315\\274\\000\\310\\315\\315\\315\\315\\315\\274\\000\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\274\\000\\000\\000\\000\\000\\000\\000\\000\\310\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\273\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\333\\273\\000\\333\\333\\333\\273\\000\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\273\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\272\\000\\333\\333\\311\\274\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\311\\315\\315\\333\\333\\273\\333\\333\\333\\333\\273\\000\\000\\333\\333\\272\\333\\333\\311\\315\\315\\315\\315\\274\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\333\\333\\333\\311\\274\\000\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\333\\333\\333\\333\\311\\274\\333\\333\\311\\333\\333\\273\\000\\333\\333\\272\\333\\333\\333\\333\\333\\273\\000\\000\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\311\\315\\333\\333\\273\\000\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\311\\315\\315\\333\\333\\273\\333\\333\\272\\310\\333\\333\\273\\333\\333\\272\\333\\333\\311\\315\\315\\274\\000\\000\\333\\333\\272\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\333\\333\\272\\000\\000\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\272\\000\\000\\333\\333\\272\\333\\333\\272\\000\\310\\333\\333\\333\\333\\272\\333\\333\\333\\333\\333\\333\\333\\273\\333\\333\\333\\333\\333\\333\\333\\273\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\310\\315\\274\\000\\000\\310\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\274\\000\\000\\310\\315\\274\\310\\315\\274\\000\\000\\310\\315\\315\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\310\\315\\315\\315\\315\\315\\315\\274\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000\\000";$/;"	v
+shell	srcs/shell.c	/^void	shell(void)$/;"	f	typeref:typename:void
+shndx	include/kernel.h	/^	uint32_t				shndx;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+simple_scroll	libkfs/scroll.c	/^void	simple_scroll(void)$/;"	f	typeref:typename:void
+size	include/kernel.h	/^	uint32_t				size;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+size_t	libkfs/include/stdint.h	/^typedef long		size_t;;$/;"	t	typeref:typename:long
+skip_blank	libkfs/string.c	/^static char	*skip_blank(char *str)$/;"	f	typeref:typename:char *	file:
+splash	include/splash.h	/^static const char	*splash =	"\\012\\012\\012\\012\\012\\012\\012\\333\\333\\333\\333\\333\\333\\/;"	v	typeref:typename:const char *
 stack_space	entry.s	/^stack_space:$/;"	l
 start	entry.s	/^start:$/;"	l
-strsplit	srcs/shell.c	/^static void	strsplit(char *cmd, char split[3][128], char c, int nb_elem)$/;"	f	file:
-switch_workspace	srcs/workspace.c	/^void	switch_workspace(int keycode)$/;"	f
+strsplit	srcs/shell.c	/^static void	strsplit(char *cmd, char split[3][128], char c)$/;"	f	typeref:typename:void	file:
+switch_workspace	srcs/workspace.c	/^void	switch_workspace(int keycode)$/;"	f	typeref:typename:void
 t_gdt_entry	include/gdt.h	/^} __attribute__((packed)) t_gdt_entry;$/;"	t	typeref:struct:s_gdt_entry
 t_gdt_ptr	include/gdt.h	/^} __attribute__((packed)) t_gdt_ptr;$/;"	t	typeref:struct:s_gdt_ptr
 t_multiboot	include/kernel.h	/^}							t_multiboot;$/;"	t	typeref:struct:s_multiboot
-true	libkfs/include/stdint.h	/^	true$/;"	e	enum:__anon1
-uint16_t	libkfs/include/stdint.h	/^typedef short	uint16_t;$/;"	t
-uint32_t	libkfs/include/stdint.h	/^typedef int		uint32_t;$/;"	t
-uint64_t	libkfs/include/stdint.h	/^typedef long	uint64_t;$/;"	t
-uint8_t	libkfs/include/stdint.h	/^typedef char	uint8_t;$/;"	t
-vbe_control_info	include/kernel.h	/^	uint32_t				vbe_control_info;$/;"	m	struct:s_multiboot
-vbe_interface_len	include/kernel.h	/^	uint32_t				vbe_interface_len;$/;"	m	struct:s_multiboot
-vbe_interface_off	include/kernel.h	/^	uint32_t				vbe_interface_off;$/;"	m	struct:s_multiboot
-vbe_interface_seg	include/kernel.h	/^	uint32_t				vbe_interface_seg;$/;"	m	struct:s_multiboot
-vbe_mode	include/kernel.h	/^	uint32_t				vbe_mode;$/;"	m	struct:s_multiboot
-vbe_mode_info	include/kernel.h	/^	uint32_t				vbe_mode_info;$/;"	m	struct:s_multiboot
-vidptr	srcs/main.c	/^char	*vidptr = (char *)VIDEO_MEM_BEGIN;$/;"	v
-work	srcs/workspace.c	/^static workspace		work[2] = {$/;"	v	file:
+to_hex_16	libkfs/string.c	/^char	*to_hex_16(uint16_t key)$/;"	f	typeref:typename:char *
+to_hex_32	libkfs/string.c	/^char	*to_hex_32(uint32_t key)$/;"	f	typeref:typename:char *
+to_hex_8	libkfs/string.c	/^char	*to_hex_8(uint8_t key)$/;"	f	typeref:typename:char *
+uint16_t	libkfs/include/stdint.h	/^typedef short		uint16_t;$/;"	t	typeref:typename:short
+uint32_t	libkfs/include/stdint.h	/^typedef int			uint32_t;$/;"	t	typeref:typename:int
+uint64_t	libkfs/include/stdint.h	/^typedef long		uint64_t;$/;"	t	typeref:typename:long
+uint8_t	libkfs/include/stdint.h	/^typedef char		uint8_t;$/;"	t	typeref:typename:char
+uint8_t	libkfs/include/stdint.h	/^typedef uint8_t	bool;$/;"	t	typeref:typename:bool
+vbe_control_info	include/kernel.h	/^	uint32_t				vbe_control_info;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+vbe_interface_len	include/kernel.h	/^	uint32_t				vbe_interface_len;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+vbe_interface_off	include/kernel.h	/^	uint32_t				vbe_interface_off;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+vbe_interface_seg	include/kernel.h	/^	uint32_t				vbe_interface_seg;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+vbe_mode	include/kernel.h	/^	uint32_t				vbe_mode;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+vbe_mode_info	include/kernel.h	/^	uint32_t				vbe_mode_info;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
+vidptr	srcs/main.c	/^char	*vidptr = (char *)VIDEO_MEM_BEGIN;$/;"	v	typeref:typename:char *
+work	srcs/workspace.c	/^static workspace		work[2] = {$/;"	v	typeref:typename:workspace[2]	file:
 workspace	include/kernel.h	/^typedef struct	workspace$/;"	s
 workspace	include/kernel.h	/^}				workspace;$/;"	t	typeref:struct:workspace
+write_cmd	srcs/shell.c	/^static void	write_cmd(const char *addr_str, const char *str)$/;"	f	typeref:typename:void	file:
 write_port	entry.s	/^write_port:$/;"	l
-write_to_pos	srcs/write.c	/^void	write_to_pos(uint8_t x, uint8_t y, const char *str)$/;"	f
+write_to_pos	srcs/write.c	/^void	write_to_pos(uint8_t x, uint8_t y, const char *str)$/;"	f	typeref:typename:void
