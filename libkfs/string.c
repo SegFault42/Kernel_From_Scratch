@@ -1,5 +1,40 @@
 #include "libkfs.h"
 
+int count_nb_elem(char *str, char c)
+{
+	int	nb_elem = 1;
+
+	while (*str) {
+		if (*str == c)
+			nb_elem++;
+		str++;
+	}
+
+	return (nb_elem);
+}
+
+void	strsplit(char *cmd, char split[3][128], char c)
+{
+	int	i = 0;
+	int	j = 0;
+
+	// loop to reach '\0'
+	while (*cmd) {
+		// if character is not c, we store c in our buffer
+		if (*cmd != c) {
+			split[i][j] = *cmd;
+		// else we put a '\0' in end of string
+		} else {
+			split[i][j] = '\0';
+			i++;
+			j = -1;
+		}
+		// incr to next array
+		j++;
+		cmd++;
+	}
+}
+
 static char	*skip_blank(char *str)
 {
 	while (*str == ' ' || *str == '\n')

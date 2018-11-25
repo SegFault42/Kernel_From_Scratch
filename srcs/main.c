@@ -41,9 +41,6 @@ loop:
 
 int	kmain(__attribute__((unused)) t_multiboot multiboot)
 {
-	// Set memory to 0
-	memset(0x0, 0x0, 0xFFFF);
-
 	init_gdt();
 	kfs_clear_screen();
 	display_splash_screen();

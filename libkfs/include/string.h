@@ -29,4 +29,7 @@ void	kfs_remove_extra_white_space(char *str);
 
 int		kfs_atoi(const char *str);
 
+int		count_nb_elem(char *str, char c);
+void	strsplit(char *cmd, char split[3][128], char c);
+
 #endif

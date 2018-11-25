@@ -9,41 +9,6 @@ static void	kfs_sleep(int second)
 	}
 }
 
-static int count_nb_elem(char *str, char c)
-{
-	int	nb_elem = 1;
-
-	while (*str) {
-		if (*str == c)
-			nb_elem++;
-		str++;
-	}
-
-	return (nb_elem);
-}
-
-static void	strsplit(char *cmd, char split[3][128], char c)
-{
-	int	i = 0;
-	int	j = 0;
-
-	// loop to reach '\0'
-	while (*cmd) {
-		// if character is not c, we store c in our buffer
-		if (*cmd != c) {
-			split[i][j] = *cmd;
-		// else we put a '\0' in end of string
-		} else {
-			split[i][j] = '\0';
-			i++;
-			j = -1;
-		}
-		// incr to next array
-		j++;
-		cmd++;
-	}
-}
-
 static void	hexdump_cmd(char *arg1, char *arg2)
 {
 	uint32_t addr = 0;
@@ -61,7 +26,6 @@ static void	hexdump_cmd(char *arg1, char *arg2)
 		for (int i = 0; i < size / 16; i++) {
 			hexdump((void *)addr);
 			addr += 16;
-			/*kfs_sleep(1);*/
 		}
 	}
 }

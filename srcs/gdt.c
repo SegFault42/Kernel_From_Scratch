@@ -1,7 +1,7 @@
 #include "../include/kernel.h"
 
 t_gdt_entry	gdt_entries[NB_ENTRIES];
-t_gdt_ptr		gdt_ptr;
+t_gdt_ptr	gdt_ptr;
 
 static void gdt_set_gate(int num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran)
 {
