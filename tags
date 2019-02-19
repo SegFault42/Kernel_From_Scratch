@@ -92,7 +92,7 @@ clean	Makefile	/^clean:$/;"	t
 clean	libkfs/Makefile	/^clean:$/;"	t
 cmdline	include/kernel.h	/^	uint32_t				cmdline;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
 config_table	include/kernel.h	/^	uint32_t				config_table;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
-count_nb_elem	srcs/shell.c	/^static int count_nb_elem(char *str, char c)$/;"	f	typeref:typename:int	file:
+count_nb_elem	libkfs/string.c	/^int count_nb_elem(char *str, char c)$/;"	f	typeref:typename:int
 current_work	srcs/workspace.c	/^uint8_t			current_work = 1;$/;"	v	typeref:typename:uint8_t
 display_splash_screen	srcs/write.c	/^void	display_splash_screen(void)$/;"	f	typeref:typename:void
 drives_addr	include/kernel.h	/^	uint32_t				drives_addr;$/;"	m	struct:s_multiboot	typeref:typename:uint32_t
@@ -105,7 +105,7 @@ flags	include/kernel.h	/^	uint32_t				flags;$/;"	m	struct:s_multiboot	typeref:ty
 flush	entry.s	/^.flush:$/;"	l
 gdt_entries	srcs/gdt.c	/^t_gdt_entry	gdt_entries[NB_ENTRIES];$/;"	v	typeref:typename:t_gdt_entry[]
 gdt_flush	entry.s	/^gdt_flush:$/;"	l
-gdt_ptr	srcs/gdt.c	/^t_gdt_ptr		gdt_ptr;$/;"	v	typeref:typename:t_gdt_ptr
+gdt_ptr	srcs/gdt.c	/^t_gdt_ptr	gdt_ptr;$/;"	v	typeref:typename:t_gdt_ptr
 gdt_set_gate	srcs/gdt.c	/^static void gdt_set_gate(int num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran)$/;"	f	typeref:typename:void	file:
 get_input	srcs/keyboard.c	/^void	get_input(char buff[])$/;"	f	typeref:typename:void
 global	entry.s	/^global gdt_flush$/;"	l
@@ -172,7 +172,7 @@ skip_blank	libkfs/string.c	/^static char	*skip_blank(char *str)$/;"	f	typeref:ty
 splash	include/splash.h	/^static const char	*splash =	"\\012\\012\\012\\012\\012\\012\\012\\333\\333\\333\\333\\333\\333\\/;"	v	typeref:typename:const char *
 stack_space	entry.s	/^stack_space:$/;"	l
 start	entry.s	/^start:$/;"	l
-strsplit	srcs/shell.c	/^static void	strsplit(char *cmd, char split[3][128], char c)$/;"	f	typeref:typename:void	file:
+strsplit	libkfs/string.c	/^void	strsplit(char *cmd, char split[3][128], char c)$/;"	f	typeref:typename:void
 switch_workspace	srcs/workspace.c	/^void	switch_workspace(int keycode)$/;"	f	typeref:typename:void
 t_gdt_entry	include/gdt.h	/^} __attribute__((packed)) t_gdt_entry;$/;"	t	typeref:struct:s_gdt_entry
 t_gdt_ptr	include/gdt.h	/^} __attribute__((packed)) t_gdt_ptr;$/;"	t	typeref:struct:s_gdt_ptr
